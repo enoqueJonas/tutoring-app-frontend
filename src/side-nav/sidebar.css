@@ -23,22 +23,32 @@
   width: 15vw;
 }
 
-@media screen and (max-width: 480px) {
-  .side-nav {
-    height: auto;
-  }
-
-  .nav-width {
-    width: 100vw;
-  }
-}
 
 .side-nav .nav-link {
-  margin-left: 2rem;
+    margin-left: 1.5rem;
+    padding: 0.5rem;
 }
 
 .side-nav .nav-link:hover {
-  background-color: var(--color-green);
-  color: #fff;
-  margin-left: 2rem;
+    background-color: var(--color-green);
+    color: #fff;
+    margin-left: 1.5rem;
+    padding: 0.5rem;
 }
+.nav-container{
+    display: flex;
+    flex-direction: column;
+}
+    @media screen and (max-width: 480px) {
+      .side-nav {
+        height: auto;
+      }
+    
+      .nav-width {
+        width: 100vw;
+      }
+          .nav-container {
+              display: flex;
+              flex-direction: row-reverse;
+          }
+    }

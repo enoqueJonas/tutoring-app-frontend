@@ -9,9 +9,9 @@ import './sidebar.css';
 function SideBar() {
   return (
     <Navbar bg="light" expand="lg" className="nav-width d-grid">
-      <Container className="flex-column nav-color p-0 w-100 ">
-        <Navbar.Brand href="#home">Tutoring classes</Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+      <Container className="nav-container nav-color p-0  m-1 " style={{ width: '100vw' }}>
+        <Navbar.Brand href="#home" className="h1 p-1">Tutoring</Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" className="m-2" />
         <Navbar.Collapse id="basic-navbar-nav " style={{ width: '100%' }}>
           <Nav className="me-auto flex-column side-nav p-0 d-flex justify-content-center" style={{ width: '100%' }}>
             <Nav.Link href="#home">Home</Nav.Link>
