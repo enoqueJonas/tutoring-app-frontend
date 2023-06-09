@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useCreateUserMutation } from '../api/usersData';
 
 const UserRegistrationForm = () => {
+  const navigate = useNavigate();
   const [userInfo, setUserInfo] = useState({
     username: '',
     email: '',
@@ -17,7 +18,7 @@ const UserRegistrationForm = () => {
       email: userInfo.email,
     })
       .then(() => {
-        window.location.href = '/';
+        navigate('/home', { replace: true });
       })
       .catch((error) => {
         console.error(error);
