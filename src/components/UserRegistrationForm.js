@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { useCreateUserMutation } from '../api/usersData';
 
 const UserRegistrationForm = () => {
@@ -47,6 +48,9 @@ const UserRegistrationForm = () => {
         value="Register"
         className="registration-form-filed m-[8px] h-[35px] w-[325px] rounded-lg border border-white-500 text-white hover:bg-white hover:bg-opacity-40"
       />
+      <Link to="/" className="text-white text-sm">
+        Click here to login if you are already registered!
+      </Link>
     </form>
   );
 };

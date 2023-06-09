@@ -27,15 +27,22 @@ const LoginFields = () => {
   };
 
   return (
-    <form className="fields-wrapper" onSubmit={handleSubmit}>
+    <form
+      className="fields-wrapper items-center flex flex-col justify-center h-[300px] w-[500px]"
+      onSubmit={handleSubmit}
+    >
       <input
         type="text"
         placeholder="Username"
-        className="input-field"
+        className="input-field m-[8px] h-[35px] w-[325px] rounded-lg"
         onChange={(e) => setName(e.target.value)}
       />
-      <input type="submit" value="Login" className="input-field" />
-      <Link to="/users/new">
+      <input
+        type="submit"
+        value="Login"
+        className="input-field m-[8px] h-[35px] w-[325px] rounded-lg border border-white-500 text-white hover:bg-white hover:bg-opacity-40"
+      />
+      <Link to="/users/new" className="text-white text-sm">
         Click here to sign up if you are not registered yet!
       </Link>
     </form>
