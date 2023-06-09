@@ -14,9 +14,13 @@ const UserRegistrationForm = () => {
     createUser({
       name: userInfo.username,
       email: userInfo.email,
-    }).catch((error) => {
-      console.error(error);
-    });
+    })
+      .then(() => {
+        window.location.href = '/';
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   };
 
   return (

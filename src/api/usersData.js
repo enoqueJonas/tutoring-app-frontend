@@ -17,12 +17,12 @@ export const usersApi = createApi({
       invalidatesTags: ['Users'],
     }),
     loginUser: builder.mutation({
-        query: (name) => ({
-            url: 'login',
-            method: 'POST',
-            body: name,
-        })
-    })
+      query: (name) => ({
+        url: 'login',
+        method: 'POST',
+        body: name,
+      }),
+    }),
   }),
 });
 
