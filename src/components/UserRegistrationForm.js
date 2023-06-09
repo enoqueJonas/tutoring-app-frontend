@@ -1,11 +1,42 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useCreateUserMutation } from '../api/usersData';
 
-const UserRegistrationForm = () => (
-  <form className="registration-form">
-    <input type="text" placeholder="Username" className="registration-form-filed" name="username" />
-    <input type="text" placeholder="Email" className="registration-form-filed" name="email" />
-    <input type="submit" placeholder="Register" className="registration-form-filed" />
-  </form>
-);
+const UserRegistrationForm = () => {
+  const [userInfo, setUserInfo] = useState({
+    username: '',
+    email: '',
+  });
 
+  const [createUser] = useCreateUserMutation();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    createUser({
+      name: userInfo.username,
+      email: userInfo.email,
+    }).catch((error) => {
+      console.error(error);
+    });
+  };
+
+  return (
+    <form className="registration-form" onSubmit={handleSubmit}>
+      <input
+        type="text"
+        placeholder="Username"
+        className="registration-form-filed"
+        name="username"
+        onChange={(e) => setUserInfo({ ...userInfo, username: e.target.value })}
+      />
+      <input
+        type="text"
+        placeholder="Email"
+        className="registration-form-filed"
+        name="email"
+        onChange={(e) => setUserInfo({ ...userInfo, email: e.target.value })}
+      />
+      <input type="submit" value="Register" className="registration-form-filed" />
+    </form>
+  );
+};
 export default UserRegistrationForm;
