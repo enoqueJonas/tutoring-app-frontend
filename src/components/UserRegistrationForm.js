@@ -24,22 +24,29 @@ const UserRegistrationForm = () => {
   };
 
   return (
-    <form className="registration-form" onSubmit={handleSubmit}>
+    <form
+      className="registration-form items-center flex flex-col justify-center h-[300px] w-[500px]"
+      onSubmit={handleSubmit}
+    >
       <input
         type="text"
         placeholder="Username"
-        className="registration-form-filed"
+        className="registration-form-filed m-[8px] h-[35px] w-[325px] rounded-lg"
         name="username"
         onChange={(e) => setUserInfo({ ...userInfo, username: e.target.value })}
       />
       <input
         type="text"
         placeholder="Email"
-        className="registration-form-filed"
+        className="registration-form-filed m-[8px] h-[35px] w-[325px] rounded-lg"
         name="email"
         onChange={(e) => setUserInfo({ ...userInfo, email: e.target.value })}
       />
-      <input type="submit" value="Register" className="registration-form-filed" />
+      <input
+        type="submit"
+        value="Register"
+        className="registration-form-filed m-[8px] h-[35px] w-[325px] rounded-lg border border-white-500 text-white hover:bg-white hover:bg-opacity-40"
+      />
     </form>
   );
 };
