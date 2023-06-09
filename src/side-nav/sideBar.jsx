@@ -3,6 +3,7 @@ import 'bootstrap/dist/js/bootstrap.bundle';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
+import { Link } from 'react-router-dom';
 
 import './sidebar.css';
 
@@ -14,11 +15,11 @@ function SideBar() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" className="m-2" />
         <Navbar.Collapse id="basic-navbar-nav " style={{ width: '100%' }}>
           <Nav className="me-auto flex-column side-nav p-0 d-flex justify-content-center" style={{ width: '100%' }}>
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#link">Reservations</Nav.Link>
-            <Nav.Link href="#link">My Reservations</Nav.Link>
-            <Nav.Link href="#link">Add Class</Nav.Link>
-            <Nav.Link href="#link">Delete Class</Nav.Link>
+            <Link className="nav-link" to="/">Home</Link>
+            <Link className="nav-link" to="add">Reservations</Link>
+            <Link className="nav-link" to="test">My Reservations</Link>
+            <Link className="nav-link" to="link">Add Class</Link>
+            <Link className="nav-link" to="link">Delete Class</Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
