@@ -23,32 +23,34 @@
   width: 15vw;
 }
 
-
 .side-nav .nav-link {
-    margin-left: 1.5rem;
-    padding: 0.5rem;
+  margin-left: 1.5rem;
+  padding: 0.5rem;
 }
 
 .side-nav .nav-link:hover {
-    background-color: var(--color-green);
-    color: #fff;
-    margin-left: 1.5rem;
-    padding: 0.5rem;
+  background-color: var(--color-green);
+  color: #fff;
+  margin-left: 1.5rem;
+  padding: 0.5rem;
 }
-.nav-container{
-    display: flex;
-    flex-direction: column;
-}
-    @media screen and (max-width: 480px) {
-      .side-nav {
-        height: auto;
-      }
 
-      .nav-width {
-        width: 100vw;
-      }
-          .nav-container {
-              display: flex;
-              flex-direction: row-reverse;
-          }
-    }
+.nav-container {
+  display: flex;
+  flex-direction: column;
+}
+
+@media screen and (max-width: 480px) {
+  .side-nav {
+    height: auto;
+  }
+
+  .nav-width {
+    width: 100vw;
+  }
+
+  .nav-container {
+    display: flex;
+    flex-direction: row-reverse;
+  }
+}
