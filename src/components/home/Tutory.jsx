@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
-import { ReactComponent as FacebookIcon } from '../assets/facebook.svg';
-import { ReactComponent as LinkedinIcon } from '../assets/linkedin.svg';
-import { ReactComponent as TwitterIcon } from '../assets/twitter.svg';
+import { ReactComponent as FacebookIcon } from '../../assets/facebook.svg';
+import { ReactComponent as LinkedinIcon } from '../../assets/linkedin.svg';
+import { ReactComponent as TwitterIcon } from '../../assets/twitter.svg';
 
 export default function Tutory({
   image, subject, description, tutor,
