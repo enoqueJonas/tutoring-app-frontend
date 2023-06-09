@@ -11,7 +11,15 @@ const LoginFields = () => {
 
     login({
       name,
-    })
+    }).unwrap()
+      .then((response) => {
+        if (response.message === 'Logged In Successfully') {
+          window.location.href = '/home';
+        } else {
+          // Handle unsuccessful login
+          console.error('Invalid username');
+        }
+      })
       .catch((error) => {
         // handle error
         console.error(error);
