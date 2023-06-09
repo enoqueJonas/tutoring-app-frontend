@@ -1,4 +1,7 @@
+import { Routes, Route } from 'react-router-dom';
 import SideBar from './side-nav/sideBar';
+import AddClass from './pages/AddClass';
+import Test from './pages/test';
 
 function App() {
   return (
@@ -8,9 +11,13 @@ function App() {
           <SideBar />
         </div>
         <div className="col-md-9">
-          <main role="main" className="px-4">
-            <h1>App component</h1>
-          </main>
+          <div className="container">
+            <Routes>
+              <Route path="add" element={<AddClass />} />
+              <Route path="test" element={<Test />} />
+            </Routes>
+          </div>
+          <main role="main" className="px-4" />
         </div>
       </div>
     </section>
