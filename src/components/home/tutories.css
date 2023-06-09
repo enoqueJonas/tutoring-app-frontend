@@ -44,9 +44,11 @@
   border: none;
   outline: transparent;
 }
+
 .arrow span {
   font-size: 2.4rem;
 }
+
 .arrow:disabled {
   background-color: #cdcdcd;
 }
@@ -58,9 +60,11 @@
   border-top-right-radius: 45%;
   border-bottom-right-radius: 45%;
 }
+
 .arrow--left span {
   transform: rotate(180deg);
 }
+
 .arrow--right {
   right: 0;
   padding-right: 2.5rem;
