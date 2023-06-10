@@ -1,6 +1,6 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import SideBar from './side-nav/sideBar';
+import SideBar from './components/side-nav/sideBar';
 import AddClass from './pages/AddClass';
 import Test from './pages/test';
 import Home from './pages/Home';

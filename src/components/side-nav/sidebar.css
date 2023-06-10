@@ -26,10 +26,12 @@
 .side-nav .nav-link {
   margin-left: 1.5rem;
   padding: 0.5rem;
+  color: gold
 }
 
 .side-nav .nav-link:hover {
   background-color: var(--color-green);
+  border: #99c10e 2px solid;
   color: #fff;
   margin-left: 1.5rem;
   padding: 0.5rem;
@@ -52,5 +54,12 @@
   .nav-container {
     display: flex;
     flex-direction: row-reverse;
+  }
+}
+
+@media screen and (min-width: 760px) {
+  .element-outlet {
+    display: grid;
+    grid-template-columns: 15% 85%;
   }
 }
