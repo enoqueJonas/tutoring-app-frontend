@@ -1,11 +1,5 @@
 import React from 'react';
-import { Routes, Route } from 'react-router-dom';
 import SideBar from './components/side-nav/sideBar';
-import AddClass from './pages/AddClass';
-import Test from './pages/test';
-import Home from './pages/Home';
-import Login from './pages/Login';
-import Signup from './pages/Signup';
 
 function App() {
   return (
@@ -15,15 +9,7 @@ function App() {
           <SideBar />
         </div>
         <div className="col-md-9" style={{ width: '85vw' }}>
-          <div className="container">
-            <Routes>
-              <Route path="add" element={<AddClass />} />
-              <Route path="test" element={<Test />} />
-              <Route path="/" element={<Login />} />
-              <Route path="/home" element={<Home />} />
-              <Route path="/users/new" element={<Signup />} />
-            </Routes>
-          </div>
+          <div className="container" />
           <main role="main" className="px-4" />
         </div>
       </div>

@@ -3,7 +3,7 @@ import Home from './pages/Home';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import SideBar from './components/side-nav/sideBar';
-import AddClass from './pages/AddClass';
+import ClassForm from './components/add-class/AddClass';
 
 const router = createBrowserRouter([
   {
@@ -25,7 +25,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/addClass',
-        element: <AddClass />,
+        element: <ClassForm />,
       },
     ],
   },
