@@ -1,0 +1,56 @@
+:root {
+  --color-green: #99c10e;
+}
+
+.side-nav {
+  height: 100vh;
+}
+
+.nav-link a {
+  color: #fff;
+  font-size: 1.2rem;
+  text-decoration: none;
+  display: block;
+  padding: 1rem;
+  transition: all 0.3s ease;
+}
+
+.nav-color {
+  background-color: transparent;
+}
+
+.nav-width {
+  width: 15vw;
+}
+
+.side-nav .nav-link {
+  margin-left: 1.5rem;
+  padding: 0.5rem;
+}
+
+.side-nav .nav-link:hover {
+  background-color: var(--color-green);
+  color: #fff;
+  margin-left: 1.5rem;
+  padding: 0.5rem;
+}
+
+.nav-container {
+  display: flex;
+  flex-direction: column;
+}
+
+@media screen and (max-width: 480px) {
+  .side-nav {
+    height: auto;
+  }
+
+  .nav-width {
+    width: 100vw;
+  }
+
+  .nav-container {
+    display: flex;
+    flex-direction: row-reverse;
+  }
+}
