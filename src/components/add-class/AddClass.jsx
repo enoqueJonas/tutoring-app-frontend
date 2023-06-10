@@ -16,6 +16,7 @@ const ClassForm = () => {
       subject,
       description,
       price,
+      duration,
     };
     dispatch(createClass(classSubject));
     setSubject('');
