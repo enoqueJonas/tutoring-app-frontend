@@ -2,15 +2,16 @@ import { Outlet, createBrowserRouter } from 'react-router-dom';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
+import SideBar from './side-nav/sideBar';
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: (
-      <>
-        <nav>Navbar</nav>
+      <div style={{ display: 'grid', gridTemplateColumns: '15% 85%' }}>
+        <SideBar />
         <Outlet />
-      </>
+      </div>
     ),
     children: [
       {
