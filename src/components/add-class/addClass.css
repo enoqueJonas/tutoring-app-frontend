@@ -15,7 +15,7 @@ button[type="submit"].btn-green {
 
 button[type="submit"].btn-green:hover {
   background-color: #a4d102;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
 }
 
 button[type="submit"].btn-green:focus {
