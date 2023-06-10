@@ -9,6 +9,7 @@ const ClassForm = () => {
   const [description, setDescription] = useState('');
   const [price, setPrice] = useState('');
   const [duration, setDuration] = useState('');
+  const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -23,10 +24,14 @@ const ClassForm = () => {
     setDescription('');
     setPrice('');
     setDuration('');
+    setSubmitted(true);
   };
 
   return (
-    <form onSubmit={handleSubmit} className="p-3">
+    <form onSubmit={handleSubmit} className="p-3 mt-5">
+      {submitted ? (
+        <div className="alert alert-success">Class added successfully!</div>
+      ) : null}
       <div className="mb-3">
         <label htmlFor="subject" className="form-label">
           Subject
