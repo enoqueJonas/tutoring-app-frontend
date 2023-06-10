@@ -25,7 +25,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/addClass',
-        element: <ClassForm />,
+        element: <ClassForms />,
       },
     ],
   },
