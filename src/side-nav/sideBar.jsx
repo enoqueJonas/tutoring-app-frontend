@@ -14,7 +14,7 @@ function SideBar() {
         <Navbar.Brand href="#home" className="h1 p-1">Tutoring</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" className="m-2" />
         <Navbar.Collapse id="basic-navbar-nav " style={{ width: '15vw' }}>
-          <Nav className="me-auto flex-column side-nav p-0 d-flex justify-content-center" style={{ width: '100%' }}>
+          <Nav className="me-auto flex-column  p-0 d-flex justify-content-center" style={{ width: '100%' }}>
             <Link className="nav-link" to="/">Home</Link>
             <Link className="nav-link" to="add">Reservations</Link>
             <Link className="nav-link" to="test">My Reservations</Link>
