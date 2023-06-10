@@ -4,7 +4,6 @@ import SideBar from './side-nav/sideBar';
 import AddClass from './pages/AddClass';
 import Test from './pages/test';
 import Home from './pages/Home';
-import Home from './pages/Home';
 import LoginPage from './pages/LoginPage';
 import UserRegistration from './pages/UserRegistration';
 

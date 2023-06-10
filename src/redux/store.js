@@ -9,7 +9,8 @@ const store = configureStore({
     tutories: tutoriesSlice,
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware()
-    .concat(usersApi.middleware),});
+    .concat(usersApi.middleware),
+});
 
 setupListeners(store.dispatch);
 
