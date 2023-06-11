@@ -22,3 +22,11 @@ button[type="submit"].btn-green:focus {
   outline: none;
   box-shadow: 0 0 0 3px rgba(164, 209, 2, 0.4);
 }
+
+.form-width {
+  width: 75vw;
+}
+
+.form-control {
+  width: 75vw;
+}
