@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import TutoriesGallery from '../components/home/TutoriesGallery';
 import {
+  fetchTutories,
   translateLeft, translateRight, updateHasReachedMaxScrolled, updateIsComputerWidth,
 } from '../redux/tutories/tutoriesSlice';
 /* TODO: tutories should be fetched from API */
@@ -10,13 +11,14 @@ export default function Home() {
   const dispatch = useDispatch();
   // import error and status once the API is deployed
   const {
-    tutories, translated, isComputerWidth, reachedMaxScroll,
+    tutories, status, translated, isComputerWidth, reachedMaxScroll,
   } = useSelector((store) => store.tutories);
 
   const amountScrollPages = Math.ceil(tutories.length / 3); // ceil always rounds up
   const itemsAmount = 3 * amountScrollPages; // total slider width / amount items that fits
   const amountToTranslate = 100 / amountScrollPages;
 
+  /* Decide wheather to display the elements as slider or not based on media match */
   useEffect(() => {
     const mediaQuery = window.matchMedia('(min-width: 1024px)');
     const onVwChange = ({ matches }) => { dispatch(updateIsComputerWidth(matches)); };
@@ -24,10 +26,16 @@ export default function Home() {
     return () => { mediaQuery.removeEventListener('change', onVwChange); };
   }, [dispatch]);
 
+  /* Determine if user has reached max permitted scroll in slider */
   useEffect(() => {
     const pagesScrolled = ((translated * -1) / amountToTranslate);
     dispatch(updateHasReachedMaxScrolled((amountScrollPages - 1) === pagesScrolled));
   }, [translated]);
+
+  useEffect(() => {
+    if (status !== 'idle') return;
+    dispatch(fetchTutories());
+  }, [dispatch]);
 
   return (
     <>
