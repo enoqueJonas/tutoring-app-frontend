@@ -23,15 +23,13 @@
   width: 15vw;
 }
 
-.side-nav .nav-link {
+.nav-link-item {
   margin-left: 1.5rem;
   padding: 0.5rem;
-  color: gold;
 }
 
-.side-nav .nav-link:hover {
+.nav-link-item:hover {
   background-color: var(--color-green);
-  border: #99c10e 2px solid;
   color: #fff;
   margin-left: 1.5rem;
   padding: 0.5rem;
