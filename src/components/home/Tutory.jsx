@@ -4,7 +4,7 @@ import { ReactComponent as LinkedinIcon } from '../../assets/linkedin.svg';
 import { ReactComponent as TwitterIcon } from '../../assets/twitter.svg';
 
 export default function Tutory({
-  image, subject, description, tutor,
+  image, subject, description,
 }) {
   return (
     <div className="tutory all:center-text">
@@ -38,12 +38,4 @@ Tutory.propTypes = {
   image: PropTypes.string.isRequired,
   subject: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
-  tutor: PropTypes.shape({
-    name: PropTypes.string.isRequired,
-    socialMedia: PropTypes.shape({
-      linkedin: PropTypes.string,
-      twitter: PropTypes.string,
-      facebook: PropTypes.string,
-    }).isRequired,
-  }).isRequired,
 };
