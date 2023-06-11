@@ -35,12 +35,12 @@ const ClassForm = () => {
 
   return (
     <section className="center-container relative d-grid justify-content-center   ">
-      <form onSubmit={handleSubmit} className="p-3  d-grid justify-items-center border shadow  bg-white rounded ">
+      <form onSubmit={handleSubmit} className="p-3  d-grid justify-items-center border shadow  bg-white rounded animate__animated animate__fadeIn">
         {submitted ? (
-          <div className="alert alert-success">Class added successfully!</div>
+          <div className="alert alert-success animate__animated animate__fadeIn">Class added successfully!</div>
         ) : null}
         <h1 className="text-center h1 border-bottom ">Add Class</h1>
-        <div className="mb-3">
+        <div className="mb-3 animate__animated animate__fadeIn">
           <label htmlFor="tutor_name" className="form-label ">
             Tutor Name
             <input
@@ -53,7 +53,7 @@ const ClassForm = () => {
             />
           </label>
         </div>
-        <div className="mb-3">
+        <div className="mb-3 animate__animated animate__fadeIn">
           <label htmlFor="subject" className="form-label ">
             Subject
             <input
@@ -66,7 +66,7 @@ const ClassForm = () => {
             />
           </label>
         </div>
-        <div className="mb-3">
+        <div className="mb-3 animate__animated animate__fadeIn">
           <label htmlFor="description" className="form-label ">
             Description
             <input
@@ -79,7 +79,7 @@ const ClassForm = () => {
             />
           </label>
         </div>
-        <div className="mb-3">
+        <div className="mb-3 animate__animated animate__fadeIn">
           <label htmlFor="price" className="form-label ">
             Price
             <input
@@ -92,7 +92,7 @@ const ClassForm = () => {
             />
           </label>
         </div>
-        <div className="mb-3">
+        <div className="mb-3 animate__animated animate__fadeIn">
           <label htmlFor="duration" className="form-label ">
             Duration
             <input
@@ -105,7 +105,7 @@ const ClassForm = () => {
             />
           </label>
         </div>
-        <div className="mb-3">
+        <div className="mb-3 animate__animated animate__fadeIn">
           <label htmlFor="image" className="form-label ">
             image
             <input
