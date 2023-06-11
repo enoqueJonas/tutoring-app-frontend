@@ -1,14 +1,10 @@
-// TODO: uncomment code once the API is deployed
-// import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { createSlice } from '@reduxjs/toolkit';
-// import axios from 'axios';
-/* Use mock data since API is still not deployed */
-import tutories from './mockData';
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import axios from 'axios';
 
-// const BASE_URL = 'https://domainname.com/apiurl';
+const BASE_URL = 'https://tutoring-app-backend-group.onrender.com';
 
 const initialState = {
-  tutories,
+  tutories: [],
   status: 'idle',
   error: '',
   translated: 0,
@@ -16,18 +12,19 @@ const initialState = {
   reachedMaxScroll: false,
 };
 
-// TODO: deploy api and fetch data
-// export const fetchTutories = createAsyncThunk('tutories/get', () => (
-//   new Promise((resolve, reject) => {
-//     axios.get(`${BASE_URL}/tutories.json`)
-//       .then(({ data }) => {
-//         resolve(data.tutories);
-//       })
-//       .catch((error) => {
-//         reject(error);
-//       });
-//   })
-// ));
+export const fetchTutories = createAsyncThunk(
+  'tutories/get',
+  () => new Promise((resolve, reject) => {
+    axios
+      .get(`${BASE_URL}/class_subjects`)
+      .then(({ data }) => {
+        resolve(data);
+      })
+      .catch((error) => {
+        reject(error);
+      });
+  }),
+);
 
 const tutoriesSlice = createSlice({
   name: 'tutories',
@@ -44,19 +41,23 @@ const tutoriesSlice = createSlice({
       return { ...state, translated: translate };
     },
   },
-  // TODO: once the data is fetch add extra reducers
-  // extraReducers(builder) {
-  //   builder
-  //     .addCase(fetchTutories.pending, (state) => ({
-  //       ...state, status: 'loading',
-  //     }))
-  //     .addCase(fetchTutories.fulfilled, (state, { payload }) => ({
-  //       ...state, tutories: payload, status: 'fulfilled',
-  //     }))
-  //     .addCase(fetchTutories.rejected, (state, { error }) => ({
-  //       ...state, status: 'rejected', error: error.message,
-  //     }));
-  // },
+  extraReducers(builder) {
+    builder
+      .addCase(fetchTutories.pending, (state) => ({
+        ...state,
+        status: 'loading',
+      }))
+      .addCase(fetchTutories.fulfilled, (state, { payload }) => ({
+        ...state,
+        tutories: payload,
+        status: 'fulfilled',
+      }))
+      .addCase(fetchTutories.rejected, (state, { error }) => ({
+        ...state,
+        status: 'rejected',
+        error: error.message,
+      }));
+  },
 });
 
 export const {
