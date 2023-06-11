@@ -1,4 +1,3 @@
-/* eslint-disable no-param-reassign */
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
@@ -17,13 +16,9 @@ const addClassslice = createSlice({
   initialState: {},
   reducers: {},
   extraReducers: (builder) => {
-    builder.addCase(createClass.fulfilled, (state, action) => {
-      state = action.payload;
-    });
+    builder.addCase(createClass.fulfilled, (action) => action.payload);
 
-    builder.addCase(createClass.rejected, (state, action) => {
-      state = action.payload;
-    });
+    builder.addCase(createClass.rejected, (action) => action.payload);
   },
 });
 
