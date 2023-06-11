@@ -12,9 +12,15 @@ const ClassForm = () => {
   const [image, setImage] = useState('');
   const [tutorName, setTutorName] = useState('');
   const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    if (tutorName.trim() === '' || subject.trim() === '' || description.trim() === '' || price.trim() === '' || duration.trim() === '' || image.trim() === '') {
+      setError(true);
+      return;
+    }
     const classSubject = {
       subject,
       description,
@@ -38,6 +44,9 @@ const ClassForm = () => {
       <form onSubmit={handleSubmit} className="p-3  d-grid justify-items-center border shadow  bg-white rounded animate__animated animate__fadeIn">
         {submitted ? (
           <div className="alert alert-success animate__animated animate__fadeIn">Class added successfully!</div>
+        ) : null}
+        {error ? (
+          <div className="alert alert-danger animate__animated animate__fadeIn">All fields are required!</div>
         ) : null}
         <h1 className="text-center h1 border-bottom ">Add Class</h1>
         <div className="mb-3 animate__animated animate__fadeIn">
