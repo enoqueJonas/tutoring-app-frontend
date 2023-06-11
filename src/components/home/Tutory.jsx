@@ -14,17 +14,17 @@ export default function Tutory({
       <p>{description}</p>
       <ul className="social-media">
         <li>
-          <a href={tutor.socialMedia.linkedin} target="_blank" rel="noreferrer">
+          <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer">
             <LinkedinIcon />
           </a>
         </li>
         <li>
-          <a href={tutor.socialMedia.twitter} target="_blank" rel="noreferrer">
+          <a href="https://twitter.com/" target="_blank" rel="noreferrer">
             <TwitterIcon />
           </a>
         </li>
         <li>
-          <a href={tutor.socialMedia.facebook} target="_blank" rel="noreferrer">
+          <a href="https://www.facebook.com/" target="_blank" rel="noreferrer">
             <FacebookIcon />
           </a>
         </li>
