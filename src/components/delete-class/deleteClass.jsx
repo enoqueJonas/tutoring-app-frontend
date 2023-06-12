@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchTutories } from '../../redux/deleteClass/deleteClassSlice';
+import { fetchTutories, deleteTutory } from '../../redux/deleteClass/deleteClassSlice';
+
 
 const DeleteClass = () => {
     const dispatch = useDispatch();
@@ -11,6 +12,7 @@ const DeleteClass = () => {
     }, [dispatch]);
   
     const handleDeleteClass = (classId) => {
+      dispatch(deleteTutory(classId));
     };
   
     return (

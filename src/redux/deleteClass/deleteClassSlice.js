@@ -24,11 +24,22 @@ export const fetchTutories = createAsyncThunk(
   }),
 );
 
+export const deleteTutory = createAsyncThunk(
+  'tutories/delete',
+  async (classId) => {
+    try {
+      await axios.delete(`${BASE_URL}/class_subjects/${classId}`);
+      return classId;
+    } catch (error) {
+      throw new Error('Failed to delete the class.');
+    }
+  }
+);
+
 const deleteClassSlice = createSlice({
   name: 'delete-class',
   initialState,
-  reducers: {
-  },
+  reducers: {},
   extraReducers(builder) {
     builder
       .addCase(fetchTutories.pending, (state) => ({
@@ -44,9 +55,22 @@ const deleteClassSlice = createSlice({
         ...state,
         status: 'rejected',
         error: error.message,
+      }))
+      .addCase(deleteTutory.pending, (state) => ({
+        ...state,
+        status: 'loading',
+      }))
+      .addCase(deleteTutory.fulfilled, (state, { payload }) => ({
+        ...state,
+        tutories: state.tutories.filter((classItem) => classItem.id !== payload),
+        status: 'fulfilled',
+      }))
+      .addCase(deleteTutory.rejected, (state, { error }) => ({
+        ...state,
+        status: 'rejected',
+        error: error.message,
       }));
   },
 });
-
 
 export default deleteClassSlice.reducer;
