@@ -6,6 +6,11 @@
 
 .tutory {
   padding: 1rem;
+  transition: transform 325ms ease-in-out;
+}
+
+.tutory:hover {
+  transform: scale(1.025);
 }
 
 .tutory img {
