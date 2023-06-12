@@ -7,7 +7,7 @@ import './myReservations.css';
 const myReservations = () => {
     return (
       <div>
-        <section className="center-container relative">
+        <section className="rel">
           <div className="all:center-text mb-1">
             <h1 className="title">My Reservations</h1>
             <p className="subtitle">Here are all the reservations made so far</p>
