@@ -17,7 +17,7 @@ const DeleteClass = () => {
       <div>
         {tutories.map((classItem) => (
           <div key={classItem.id}>
-            <span>{classItem.className}</span>
+            <span>{classItem.subject}</span>
             <button onClick={() => handleDeleteClass(classItem.id)}>Delete</button>
           </div>
         ))}
