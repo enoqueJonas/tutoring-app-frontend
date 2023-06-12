@@ -7,7 +7,7 @@ const initialState = {
   tutories: [],
   status: 'idle',
   error: '',
-  translated: 0
+  translated: 0,
 };
 
 export const fetchTutories = createAsyncThunk(
@@ -35,9 +35,8 @@ export const deleteTutory = createAsyncThunk(
     } catch (error) {
       throw new Error('Failed to delete the class.');
     }
-  }
+  },
 );
-
 
 const deleteClassSlice = createSlice({
   name: 'delete-class',
