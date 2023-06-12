@@ -42,13 +42,6 @@ const ReservationForm = () => {
         name="username"
         onChange={(e) => setReservationInfo({ ...reservationInfo, user_id: e.target.value })}
       />
-      <input
-        type="text"
-        placeholder="City"
-        className="registration-form-filed m-[8px] h-[35px] w-[325px] rounded-lg"
-        name="email"
-        onChange={(e) => setReservationInfo({ ...reservationInfo, city: e.target.value })}
-      />
       <select
         className="registration-form-filed m-[8px] h-[35px] w-[325px] rounded-lg"
         onChange={(e) => setReservationInfo({ ...reservationInfo, class_subject: e.target.id })}
@@ -64,6 +57,13 @@ const ReservationForm = () => {
           </option>
         ))}
       </select>
+      <input
+        type="text"
+        placeholder="City"
+        className="registration-form-filed m-[8px] h-[35px] w-[325px] rounded-lg"
+        name="email"
+        onChange={(e) => setReservationInfo({ ...reservationInfo, city: e.target.value })}
+      />
       <input
         type="date"
         placeholder="Date"
