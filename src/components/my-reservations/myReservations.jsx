@@ -1,8 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchTutories, deleteTutory } from '../../redux/deleteClass/deleteClassSlice';
-import './deleteClass.css';
-import { ReactComponent as DeleteIcon } from '../../assets/del.svg';
+import './myReservations.css';
 
 
 const myReservations = () => {
