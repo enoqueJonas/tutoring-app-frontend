@@ -4,6 +4,7 @@ import Login from './pages/Login';
 import Signup from './pages/Signup';
 import SideBar from './components/side-nav/sideBar';
 import ClassForm from './components/add-class/AddClass';
+import Details from './pages/Details';
 
 const router = createBrowserRouter([
   {
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
       {
         path: 'home',
         element: <Home />,
+      },
+      {
+        path: 'classes/:subject',
+        element: <Details />,
       },
       {
         path: '/addClass',
