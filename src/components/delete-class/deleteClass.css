@@ -10,6 +10,7 @@
   justify-content: center;
   gap: 10px;
   margin: 2vw 15vw;
+  margin-top: -10vw;
 }
 
 .tutory-image {
