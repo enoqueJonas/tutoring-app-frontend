@@ -5,6 +5,7 @@ import Signup from './pages/Signup';
 import SideBar from './components/side-nav/sideBar';
 import ClassForm from './components/add-class/AddClass';
 import DeleteClass from './components/delete-class/deleteClass';
+import MyReservations from './components/my-reservations/myReservations';
 
 const router = createBrowserRouter([
   {
@@ -31,6 +32,10 @@ const router = createBrowserRouter([
       {
         path: '/deleteClass',
         element: <DeleteClass />,
+      },
+      {
+        path: '/myReservations',
+        element: <MyReservations />,
       },
     ],
   },
