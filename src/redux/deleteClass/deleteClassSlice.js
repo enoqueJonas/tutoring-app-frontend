@@ -8,8 +8,6 @@ const initialState = {
   status: 'idle',
   error: '',
   translated: 0,
-  isComputerWidth: window.matchMedia('(min-width: 1024px)').matches,
-  reachedMaxScroll: false,
 };
 
 export const fetchTutories = createAsyncThunk(
@@ -26,21 +24,24 @@ export const fetchTutories = createAsyncThunk(
   }),
 );
 
-const tutoriesSlice = createSlice({
-  name: 'tutories',
-  initialState,
-  reducers: {
-    updateIsComputerWidth: (state, { payload }) => ({ ...state, isComputerWidth: payload }),
-    updateHasReachedMaxScrolled: (state, { payload }) => ({ ...state, reachedMaxScroll: payload }),
-    translateLeft: (state, { payload }) => {
-      const translate = state.translated + payload;
-      return { ...state, translated: translate };
-    },
-    translateRight: (state, { payload }) => {
-      const translate = state.translated - payload;
-      return { ...state, translated: translate };
-    },
+export const deleteTutory = createAsyncThunk(
+  'tutories/delete',
+  async (classId, { getState }) => {
+    try {
+      await axios.delete(`${BASE_URL}/class_subjects/${classId}`);
+      const { tutories } = getState().deleteClass;
+      const updatedTutories = tutories.filter((classItem) => classItem.id !== classId);
+      return updatedTutories;
+    } catch (error) {
+      throw new Error('Failed to delete the class.');
+    }
   },
+);
+
+const deleteClassSlice = createSlice({
+  name: 'delete-class',
+  initialState,
+  reducers: {},
   extraReducers(builder) {
     builder
       .addCase(fetchTutories.pending, (state) => ({
@@ -56,12 +57,22 @@ const tutoriesSlice = createSlice({
         ...state,
         status: 'rejected',
         error: error.message,
+      }))
+      .addCase(deleteTutory.pending, (state) => ({
+        ...state,
+        status: 'loading',
+      }))
+      .addCase(deleteTutory.fulfilled, (state, { payload }) => ({
+        ...state,
+        tutories: payload,
+        status: 'fulfilled',
+      }))
+      .addCase(deleteTutory.rejected, (state, { error }) => ({
+        ...state,
+        status: 'rejected',
+        error: error.message,
       }));
   },
 });
 
-export const {
-  updateIsComputerWidth, updateHasReachedMaxScrolled, translateLeft, translateRight,
-} = tutoriesSlice.actions;
-
-export default tutoriesSlice.reducer;
+export default deleteClassSlice.reducer;

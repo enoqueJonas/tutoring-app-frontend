@@ -23,16 +23,25 @@
   width: 15vw;
 }
 
-.side-nav .nav-link {
+.nav-link-item {
   margin-left: 1.5rem;
   padding: 0.5rem;
 }
 
-.side-nav .nav-link:hover {
+.nav-link-item:hover {
   background-color: var(--color-green);
   color: #fff;
   margin-left: 1.5rem;
   padding: 0.5rem;
+  transition: all 0.5s ease;
+}
+
+.nav-link-item.active {
+  background-color: var(--color-green);
+  color: #fff;
+  margin-left: 1.5rem;
+  padding: 0.5rem;
+  transition: all 0.5s ease;
 }
 
 .nav-container {
@@ -52,5 +61,12 @@
   .nav-container {
     display: flex;
     flex-direction: row-reverse;
+  }
+}
+
+@media screen and (min-width: 760px) {
+  .element-outlet {
+    display: grid;
+    grid-template-columns: 15% 85%;
   }
 }
