@@ -19,7 +19,7 @@ const DeleteClass = () => {
   
     return (
       <div>
-        <section className="rel">
+        <section className="rel animate__animated animate__fadeIn">
           <div className="all:center-text mb-1">
             <h1 className="title">Delete a class</h1>
             <p className="subtitle">Here are all the classes available</p>
