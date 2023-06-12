@@ -17,6 +17,7 @@ const DeleteClass = () => {
       <div>
         {tutories.map((classItem) => (
           <div key={classItem.id}>
+            <img src={classItem.image} alt={`Tutory class about ${classItem.subject}`} />
             <span>{classItem.subject}</span>
             <button onClick={() => handleDeleteClass(classItem.id)}>Delete</button>
           </div>
