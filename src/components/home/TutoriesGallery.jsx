@@ -36,14 +36,6 @@ TutoriesGallery.propTypes = {
       image: PropTypes.string.isRequired,
       subject: PropTypes.string.isRequired,
       description: PropTypes.string.isRequired,
-      tutor: PropTypes.shape({
-        name: PropTypes.string.isRequired,
-        socialMedia: PropTypes.shape({
-          linkedin: PropTypes.string,
-          twitter: PropTypes.string,
-          facebook: PropTypes.string,
-        }).isRequired,
-      }).isRequired,
     }),
   ).isRequired,
   isComputerWidth: PropTypes.bool.isRequired,
