@@ -12,16 +12,18 @@
   width: 15vw;
   background-size: contain;
   background-position: center;
+  display: flex;
+  align-items: end;
 }
 
 .tutory-content {
-  /* position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0; */
   padding: 10px;
+  width: 100%;
   background-color: rgba(0, 0, 0, 0.7);
   color: white;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .tutory-subject {
@@ -29,7 +31,6 @@
 }
 
 .delete-button {
-  margin-top: 10px;
   padding: 5px 10px;
   background-color: red;
   color: white;
