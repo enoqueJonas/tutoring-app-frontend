@@ -4,6 +4,7 @@ import Login from './pages/Login';
 import Signup from './pages/Signup';
 import SideBar from './components/side-nav/sideBar';
 import ClassForm from './components/add-class/AddClass';
+import Reservation from './pages/Reservation';
 
 const router = createBrowserRouter([
   {
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
       {
         path: '/addClass',
         element: <ClassForm />,
+      },
+      {
+        path: '/reservation',
+        element: <Reservation />,
       },
     ],
   },

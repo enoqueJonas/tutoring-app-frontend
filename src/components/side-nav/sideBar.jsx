@@ -16,7 +16,7 @@ function SideBar() {
         <Navbar.Collapse id="basic-navbar-nav " style={{ width: '15vw' }}>
           <Nav className=" flex-column  p-0 d-flex justify-content-center" style={{ width: '100%' }}>
             <Link className="nav-link-item " to="home">Home</Link>
-            <Link className="nav-link-item" to="add">Reservations</Link>
+            <Link className="nav-link-item" to="/reservation">Reservations</Link>
             <Link className="nav-link-item" to="test">My Reservations</Link>
             <Link className="nav-link-item" to="addClass">Add Class</Link>
             <Link className="nav-link-item" to="link">Delete Class</Link>
