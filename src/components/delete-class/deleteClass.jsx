@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchTutories } from './deleteClassSlice';
+import { fetchTutories } from '../../redux/deleteClass/deleteClassSlice';
 
 const DeleteClass = () => {
     const dispatch = useDispatch();
