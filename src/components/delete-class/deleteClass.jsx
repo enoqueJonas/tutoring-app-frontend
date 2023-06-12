@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchTutories, deleteTutory } from '../../redux/deleteClass/deleteClassSlice';
 import './deleteClass.css';
-import { ReactComponent as DeleteIcon } from '../../assets/delete.svg';
+import { ReactComponent as DeleteIcon } from '../../assets/del.svg';
 
 
 const DeleteClass = () => {
@@ -32,7 +32,6 @@ const DeleteClass = () => {
                 <div className="tutory-content">
                   <span className="tutory-subject">{classItem.subject}</span>
                   <button className="delete-button" onClick={() => handleDeleteClass(classItem.id)}>
-                    Delete
                     <DeleteIcon />
                   </button>
                 </div>
