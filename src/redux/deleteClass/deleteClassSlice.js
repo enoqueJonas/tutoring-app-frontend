@@ -7,9 +7,7 @@ const initialState = {
   tutories: [],
   status: 'idle',
   error: '',
-  translated: 0,
-  isComputerWidth: window.matchMedia('(min-width: 1024px)').matches,
-  reachedMaxScroll: false,
+  translated: 0
 };
 
 export const fetchTutories = createAsyncThunk(
@@ -30,16 +28,6 @@ const deleteClassSlice = createSlice({
   name: 'delete-class',
   initialState,
   reducers: {
-    updateIsComputerWidth: (state, { payload }) => ({ ...state, isComputerWidth: payload }),
-    updateHasReachedMaxScrolled: (state, { payload }) => ({ ...state, reachedMaxScroll: payload }),
-    translateLeft: (state, { payload }) => {
-      const translate = state.translated + payload;
-      return { ...state, translated: translate };
-    },
-    translateRight: (state, { payload }) => {
-      const translate = state.translated - payload;
-      return { ...state, translated: translate };
-    },
   },
   extraReducers(builder) {
     builder
@@ -60,8 +48,5 @@ const deleteClassSlice = createSlice({
   },
 });
 
-export const {
-  updateIsComputerWidth, updateHasReachedMaxScrolled, translateLeft, translateRight,
-} = deleteClassSlice.actions;
 
 export default deleteClassSlice.reducer;
