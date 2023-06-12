@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import './addClass.css';
+import './deleteClass.css';
 import { createClass } from '../../redux/addClass/addClassSlice';
 
 const DeleteClass = () => {
