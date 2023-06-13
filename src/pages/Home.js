@@ -1,22 +1,35 @@
-import { useEffect } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import TutoriesGallery from '../components/home/TutoriesGallery';
 import {
   fetchTutories,
   translateLeft, translateRight, updateHasReachedMaxScrolled, updateIsComputerWidth,
 } from '../redux/tutories/tutoriesSlice';
-/* TODO: tutories should be fetched from API */
 
 export default function Home() {
   const dispatch = useDispatch();
-  // import error and status once the API is deployed
   const {
     tutories, status, translated, isComputerWidth, reachedMaxScroll,
   } = useSelector((store) => store.tutories);
 
-  const amountScrollPages = Math.ceil(tutories.length / 3); // ceil always rounds up
-  const itemsAmount = 3 * amountScrollPages; // total slider width / amount items that fits
-  const amountToTranslate = 100 / amountScrollPages;
+  const [
+    amountScrollPages,
+    setAmountScrollPages,
+  ] = useState(tutories.length === 0 ? 1 : Math.ceil(tutories.length / 3));
+
+  const itemsAmount = useRef(3 * amountScrollPages);
+  const amountToTranslate = useRef(100 / amountScrollPages);
+
+  useEffect(() => {
+    // Once the tutories are loaded and if tutories length is greater than 0
+    if (status !== 'fulfilled' && tutories.length > 0) return;
+    // recalculate the amount of scroll pages
+    const newAmountScrollPages = Math.ceil(tutories.length / 3);
+    setAmountScrollPages(newAmountScrollPages);
+    // and the values related to it
+    itemsAmount.current = 3 * newAmountScrollPages;
+    amountToTranslate.current = 100 / newAmountScrollPages;
+  }, [status]);
 
   /* Decide wheather to display the elements as slider or not based on media match */
   useEffect(() => {
@@ -28,9 +41,9 @@ export default function Home() {
 
   /* Determine if user has reached max permitted scroll in slider */
   useEffect(() => {
-    const pagesScrolled = ((translated * -1) / amountToTranslate);
+    const pagesScrolled = ((translated * -1) / amountToTranslate.current);
     dispatch(updateHasReachedMaxScrolled((amountScrollPages - 1) === pagesScrolled));
-  }, [translated]);
+  }, [translated, amountScrollPages]);
 
   useEffect(() => {
     if (status !== 'idle') return;
@@ -51,7 +64,7 @@ export default function Home() {
             tutories={tutories}
             isComputerWidth={isComputerWidth}
             amountScrollPages={amountScrollPages}
-            itemsAmount={itemsAmount}
+            itemsAmount={itemsAmount.current}
             translated={translated}
           />
         </div>
@@ -60,7 +73,7 @@ export default function Home() {
             <button
               type="button"
               className="arrow arrow--left"
-              onClick={() => { dispatch(translateLeft(amountToTranslate)); }}
+              onClick={() => { dispatch(translateLeft(amountToTranslate.current)); }}
               disabled={translated === 0}
             >
               <span className="material-symbols-outlined">
@@ -70,7 +83,7 @@ export default function Home() {
             <button
               type="button"
               className="arrow arrow--right"
-              onClick={() => { dispatch(translateRight(amountToTranslate)); }}
+              onClick={() => { dispatch(translateRight(amountToTranslate.current)); }}
               disabled={reachedMaxScroll}
             >
               <span className="material-symbols-outlined">
