@@ -5,8 +5,10 @@ const BASE_URL = 'https://tutoring-app-backend-group.onrender.com';
 
 const initialState = {
   tutories: [],
+  tutory: {},
   status: 'idle',
   error: '',
+  tutoryError: '',
   translated: 0,
   isComputerWidth: window.matchMedia('(min-width: 1024px)').matches,
   reachedMaxScroll: false,
@@ -17,6 +19,20 @@ export const fetchTutories = createAsyncThunk(
   () => new Promise((resolve, reject) => {
     axios
       .get(`${BASE_URL}/class_subjects`)
+      .then(({ data }) => {
+        resolve(data);
+      })
+      .catch((error) => {
+        reject(error);
+      });
+  }),
+);
+
+export const fetchTutory = createAsyncThunk(
+  'tutory/get',
+  (subjectId) => new Promise((resolve, reject) => {
+    axios
+      .get(`${BASE_URL}/class_subjects/${subjectId}`)
       .then(({ data }) => {
         resolve(data);
       })
@@ -40,6 +56,12 @@ const tutoriesSlice = createSlice({
       const translate = state.translated - payload;
       return { ...state, translated: translate };
     },
+    setTutory: (state, { payload }) => ({
+      ...state, tutory: payload,
+    }),
+    setTutoryError: (state, { payload }) => ({
+      ...state, tutoryError: payload,
+    }),
   },
   extraReducers(builder) {
     builder
@@ -56,12 +78,31 @@ const tutoriesSlice = createSlice({
         ...state,
         status: 'rejected',
         error: error.message,
+      }))
+      .addCase(fetchTutory.pending, (state) => ({
+        ...state,
+        status: 'loading',
+      }))
+      .addCase(fetchTutory.fulfilled, (state, { payload }) => ({
+        ...state,
+        tutory: payload,
+        status: 'fulfilled',
+      }))
+      .addCase(fetchTutory.rejected, (state, { error }) => ({
+        ...state,
+        status: 'rejected',
+        tutoryError: error.message,
       }));
   },
 });
 
 export const {
-  updateIsComputerWidth, updateHasReachedMaxScrolled, translateLeft, translateRight,
+  updateIsComputerWidth,
+  updateHasReachedMaxScrolled,
+  translateLeft,
+  translateRight,
+  setTutory,
+  setTutoryError,
 } = tutoriesSlice.actions;
 
 export default tutoriesSlice.reducer;
