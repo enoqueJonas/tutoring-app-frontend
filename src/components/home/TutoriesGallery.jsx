@@ -21,6 +21,7 @@ export default function TutoriesGallery({
             image={tutory.image}
             subject={tutory.subject}
             description={tutory.description}
+            id={tutory.id}
             tutor={tutory.tutor}
           />
         ))}
