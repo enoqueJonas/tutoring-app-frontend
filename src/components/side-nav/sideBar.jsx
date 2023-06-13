@@ -16,13 +16,13 @@ function SideBar() {
         <Navbar.Brand href="#home" className="h1 p-1">Tutoring</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" className="m-2" />
         <Navbar.Collapse id="basic-navbar-nav " style={{ width: '15vw' }}>
-        <Nav className="flex-column p-0 d-flex justify-content-center" style={{ width: '100%' }}>
-          <Link className={`nav-link-item ${activeItem === 'home' ? 'active' : ''}`} to="home" onClick={() => setActiveItem('home')}>Home</Link>
-          <Link className={`nav-link-item ${activeItem === 'add' ? 'active' : ''}`} to="add" onClick={() => setActiveItem('add')}>Reservations</Link>
-          <Link className={`nav-link-item ${activeItem === 'test' ? 'active' : ''}`} to="test" onClick={() => setActiveItem('test')}>My Reservations</Link>
-          <Link className={`nav-link-item ${activeItem === 'addClass' ? 'active' : ''}`} to="addClass" onClick={() => setActiveItem('addClass')}>Add Class</Link>
-          <Link className={`nav-link-item ${activeItem === 'deleteClass' ? 'active' : ''}`} to="deleteClass" onClick={() => setActiveItem('deleteClass')}>Delete Class</Link>
-        </Nav>
+          <Nav className="flex-column p-0 d-flex justify-content-center" style={{ width: '100%' }}>
+            <Link className={`nav-link-item ${activeItem === 'home' ? 'active' : ''}`} to="home" onClick={() => setActiveItem('home')}>Home</Link>
+            <Link className={`nav-link-item ${activeItem === 'add' ? 'active' : ''}`} to="add" onClick={() => setActiveItem('add')}>Reservations</Link>
+            <Link className={`nav-link-item ${activeItem === 'test' ? 'active' : ''}`} to="test" onClick={() => setActiveItem('test')}>My Reservations</Link>
+            <Link className={`nav-link-item ${activeItem === 'addClass' ? 'active' : ''}`} to="addClass" onClick={() => setActiveItem('addClass')}>Add Class</Link>
+            <Link className={`nav-link-item ${activeItem === 'deleteClass' ? 'active' : ''}`} to="deleteClass" onClick={() => setActiveItem('deleteClass')}>Delete Class</Link>
+          </Nav>
         </Navbar.Collapse>
       </Container>
     </Navbar>
