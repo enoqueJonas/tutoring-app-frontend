@@ -136,6 +136,54 @@ button.reset {
   position: relative;
 }
 
+button[type="button"].arrow, a.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #98bf10;
+  color: white;
+  width: max-content;
+  padding-block: 1rem;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  border: none;
+  outline: transparent;
+}
+
+a.arrow--left-bottom {
+  top: 80%;
+  transform: translateY(0);
+}
+
+button[type="button"].arrow span, a.arrow span {
+  font-size: 2.4rem;
+}
+
+button[type="button"].arrow:disabled, a.arrow:disabled {
+  background-color: #cdcdcd;
+}
+
+button[type="button"].arrow--left, a.arrow--left {
+  left: 0;
+  padding-left: 2.5rem;
+  padding-right: 0.8rem;
+  border-top-right-radius: 45%;
+  border-bottom-right-radius: 45%;
+}
+
+button[type="button"].arrow--left span, a.arrow--left span {
+  transform: rotate(180deg);
+}
+
+button[type="button"].arrow--right, a.arrow--right {
+  right: 0;
+  padding-right: 2.5rem;
+  padding-left: 0.8rem;
+  border-top-left-radius: 45%;
+  border-bottom-left-radius: 45%;
+}
+
 @media (min-width: 1024px) {
   .center-container {
     display: grid;
