@@ -49,10 +49,14 @@
   flex-direction: column;
 }
 
-@media screen and (max-width: 759px)and (max-width: 995px) {
+@media screen and (max-width: 759px) {
   .root {
     display: flex;
     flex-direction: column;
+  }
+
+  .nav-link-item {
+    width: max-content;
   }
 
   .side-nav {
@@ -74,7 +78,36 @@
   }
 }
 
-@media screen and (min-width: 950px) {
+@media screen and (min-width: 760px) and (max-width: 995px) {
+  .root {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .nav-link-item {
+    width: max-content;
+  }
+
+  .side-nav {
+    height: 100vh;
+  }
+
+  .nav-width {
+    width: 100vw;
+  }
+
+  .nav-container {
+    display: flex;
+    flex-direction: row-reverse;
+  }
+
+  .element-outlet {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media screen and (min-width: 996px) {
   .element-outlet {
     display: grid;
     grid-template-columns: 15% 85%;
