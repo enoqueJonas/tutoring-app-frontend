@@ -51,48 +51,45 @@ export default function Home() {
   }, [dispatch]);
 
   return (
-    <>
-      {/* Navbar component */}
-      <section className="center-container relative">
-        <div>
-          <div className="all:center-text mb-1">
-            <h1 className="title">Tutories Subjects</h1>
-            <p className="subtitle">Please select a subject about which you would like to receive tutories</p>
-          </div>
-          <div className="separator mb-2" />
-          <TutoriesGallery
-            tutories={tutories}
-            isComputerWidth={isComputerWidth}
-            amountScrollPages={amountScrollPages}
-            itemsAmount={itemsAmount.current}
-            translated={translated}
-          />
+    <section className="center-container relative">
+      <div>
+        <div className="all:center-text mb-1">
+          <h1 className="title">Tutories Subjects</h1>
+          <p className="subtitle">Please select a subject about which you would like to receive tutories</p>
         </div>
-        {isComputerWidth && (
-          <>
-            <button
-              type="button"
-              className="arrow arrow--left"
-              onClick={() => { dispatch(translateLeft(amountToTranslate.current)); }}
-              disabled={translated === 0}
-            >
-              <span className="material-symbols-outlined">
-                play_arrow
-              </span>
-            </button>
-            <button
-              type="button"
-              className="arrow arrow--right"
-              onClick={() => { dispatch(translateRight(amountToTranslate.current)); }}
-              disabled={reachedMaxScroll}
-            >
-              <span className="material-symbols-outlined">
-                play_arrow
-              </span>
-            </button>
-          </>
-        )}
-      </section>
-    </>
+        <div className="separator mb-2" />
+        <TutoriesGallery
+          tutories={tutories}
+          isComputerWidth={isComputerWidth}
+          amountScrollPages={amountScrollPages}
+          itemsAmount={itemsAmount.current}
+          translated={translated}
+        />
+      </div>
+      {isComputerWidth && (
+      <>
+        <button
+          type="button"
+          className="arrow arrow--left"
+          onClick={() => { dispatch(translateLeft(amountToTranslate.current)); }}
+          disabled={translated === 0}
+        >
+          <span className="material-symbols-outlined">
+            play_arrow
+          </span>
+        </button>
+        <button
+          type="button"
+          className="arrow arrow--right"
+          onClick={() => { dispatch(translateRight(amountToTranslate.current)); }}
+          disabled={reachedMaxScroll}
+        >
+          <span className="material-symbols-outlined">
+            play_arrow
+          </span>
+        </button>
+      </>
+      )}
+    </section>
   );
 }
