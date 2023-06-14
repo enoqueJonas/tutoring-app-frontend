@@ -1,0 +1,56 @@
+* {
+  box-sizing: border-box;
+}
+
+.tutory-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 2vw 15vw;
+  margin-top: -10vw;
+}
+
+.tutory-image {
+  height: 15vw;
+  width: 15vw;
+  background-size: contain;
+  background-position: center;
+  display: flex;
+  align-items: end;
+}
+
+.tutory-content {
+  padding: 10px;
+  width: 100%;
+  background-color: #9ac10ed7;
+  color: white;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.tutory-subject {
+  font-size: 18px;
+}
+
+.delete-button {
+  padding-left: 5px;
+  cursor: pointer;
+  border-radius: 50%;
+  width: 20%;
+}
+
+@media screen and (max-width: 767px) {
+  .tutory-container {
+    flex-direction: column;
+    margin: 2vw;
+  }
+
+  .tutory-image {
+    width: 80vw;
+    height: 80vw;
+  }
+}
