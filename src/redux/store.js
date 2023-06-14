@@ -3,11 +3,13 @@ import { setupListeners } from '@reduxjs/toolkit/query';
 import { usersApi } from '../api/usersData';
 import tutoriesSlice from './tutories/tutoriesSlice';
 import addClassSlice from './addClass/addClassSlice';
+import tutorySlice from './tutories/tutorySlice';
 
 const store = configureStore({
   reducer: {
     [usersApi.reducerPath]: usersApi.reducer,
     tutories: tutoriesSlice,
+    tutory: tutorySlice,
     addClass: addClassSlice,
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(usersApi.middleware),
