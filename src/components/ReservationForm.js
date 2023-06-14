@@ -2,18 +2,22 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { useCreateReservationMutation } from '../api/reservationsApi';
 import { useCurrentUserQuery } from '../api/usersData';
 
 const ReservationForm = () => {
   const { data: currentUser } = useCurrentUserQuery();
+
+  const [createReservation] = useCreateReservationMutation();
 
   const { user } = useSelector((store) => store.tutories);
 
   const [reservationInfo, setReservationInfo] = useState({
     city: '',
     user_id: '',
-    class_subject: '',
+    classSubject_id: '',
     start: '',
+    date: '',
   });
 
   const [classes, setClasses] = useState([]);
@@ -38,7 +42,15 @@ const ReservationForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(classes);
+    createReservation({
+      date: reservationInfo.date,
+      city: reservationInfo.city,
+      user_id: user.data.id,
+      classSubject_id: reservationInfo.classSubject_id,
+    })
+      .catch((error) => {
+        console.error('Error creating reservation:', error);
+      });
   };
 
   return (
@@ -53,15 +65,18 @@ const ReservationForm = () => {
         name="username"
         value={currentUser.user.name || ''}
         onChange={(e) => setReservationInfo({ ...reservationInfo, user_id: e.target.value })}
+        required
       />
       <select
         className="registration-form-filed m-[8px] h-[35px] w-[325px] rounded-lg"
-        onChange={(e) => setReservationInfo({ ...reservationInfo, class_subject: e.target.id })}
+        onChange={(e) => {
+          setReservationInfo({ ...reservationInfo, classSubject_id: e.target.value });
+        }}
       >
         <option className="text-black">Select a subject...</option>
         {classes.map((classe) => (
           <option
-            id={classe.id}
+            id={classe.subject}
             key={classe.id}
             value={classe.id}
           >
@@ -75,6 +90,7 @@ const ReservationForm = () => {
         className="registration-form-filed m-[8px] h-[35px] w-[325px] rounded-lg"
         name="email"
         onChange={(e) => setReservationInfo({ ...reservationInfo, city: e.target.value })}
+        required
       />
       <input
         type="date"
@@ -82,6 +98,7 @@ const ReservationForm = () => {
         className="registration-form-filed m-[8px] h-[35px] w-[325px] rounded-lg"
         name="email"
         onChange={(e) => setReservationInfo({ ...reservationInfo, date: e.target.value })}
+        required
       />
       <input
         type="submit"
