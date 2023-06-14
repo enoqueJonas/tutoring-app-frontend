@@ -203,6 +203,18 @@ button[type="button"].arrow--right, a.arrow--right {
   border-bottom-left-radius: 45%;
 }
 
+.flex {
+  display: flex;
+}
+
+.grow-1 {
+  flex-grow: 1;
+}
+
+.ai-center {
+  align-items: center;
+}
+
 @media (min-width: 1024px) {
   .center-container {
     display: grid;
