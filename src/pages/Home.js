@@ -1,54 +1,55 @@
 import { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import TutoriesGallery from '../components/home/TutoriesGallery';
-import {
-  fetchTutories,
-  translateLeft, translateRight, updateHasReachedMaxScrolled, updateIsComputerWidth,
-} from '../redux/tutories/tutoriesSlice';
+import { fetchTutories } from '../redux/tutories/tutoriesSlice';
+
+const mediaQuery = window.matchMedia('(min-width: 1024px)');
 
 export default function Home() {
   const dispatch = useDispatch();
-  const {
-    tutories, status, translated, isComputerWidth, reachedMaxScroll,
-  } = useSelector((store) => store.tutories);
+  const { tutories, tutoriesStatus } = useSelector((store) => store.tutories);
 
-  const [
-    amountScrollPages,
-    setAmountScrollPages,
-  ] = useState(tutories.length === 0 ? 1 : Math.ceil(tutories.length / 3));
+  const [translated, setTranslated] = useState(0);
+  const [isComputerWidth, setIsComputerWidth] = useState(mediaQuery.matches);
+  const [hasReachedMaxScroll, setHasReachedMaxScroll] = useState(true);
+  const [amountScrollPages, setAmountScrollPages] = useState(1); // each scroll page = 3 items
+  const itemsAmount = useRef(3); // since 1 scroll page is default, 3 items is default too
+  const amountToTranslate = useRef(0); // for 1 scroll page there's no need to translate
 
-  const itemsAmount = useRef(3 * amountScrollPages);
-  const amountToTranslate = useRef(100 / amountScrollPages);
+  const translateLeft = (amountToTranslate) => {
+    setTranslated((prev) => prev + amountToTranslate);
+  };
+  const translateRight = (amountToTranslate) => {
+    setTranslated((prev) => prev - amountToTranslate);
+  };
 
   useEffect(() => {
-    // Once the tutories are loaded and if tutories length is greater than 0
-    if (status !== 'fulfilled' && tutories.length > 0) return;
-    // recalculate the amount of scroll pages
-    const newAmountScrollPages = Math.ceil(tutories.length / 3);
-    setAmountScrollPages(newAmountScrollPages);
-    // and the values related to it
-    itemsAmount.current = 3 * newAmountScrollPages;
-    amountToTranslate.current = 100 / newAmountScrollPages;
-  }, [status]);
-
-  /* Decide wheather to display the elements as slider or not based on media match */
-  useEffect(() => {
-    const mediaQuery = window.matchMedia('(min-width: 1024px)');
-    const onVwChange = ({ matches }) => { dispatch(updateIsComputerWidth(matches)); };
+    /* create media match event listener for slider responsiveness */
+    const onVwChange = ({ matches }) => { setIsComputerWidth(matches); };
     mediaQuery.addEventListener('change', onVwChange);
     return () => { mediaQuery.removeEventListener('change', onVwChange); };
   }, [dispatch]);
 
   /* Determine if user has reached max permitted scroll in slider */
   useEffect(() => {
-    const pagesScrolled = ((translated * -1) / amountToTranslate.current);
-    dispatch(updateHasReachedMaxScrolled((amountScrollPages - 1) === pagesScrolled));
-  }, [translated, amountScrollPages]);
+    if (tutoriesStatus !== 'fulfilled') return;
+    let pagesScrolled = ((translated * -1) / amountToTranslate.current);
+    // when translated is 0 and amount to translate is also 0 pages scrolled isNaN
+    pagesScrolled = Number.isNaN(pagesScrolled) ? 0 : pagesScrolled;
+    setHasReachedMaxScroll((amountScrollPages - 1) === pagesScrolled);
+  }, [dispatch, translated, amountScrollPages, tutoriesStatus]);
 
   useEffect(() => {
-    if (status !== 'idle') return;
-    dispatch(fetchTutories());
-  }, [dispatch]);
+    if (tutoriesStatus !== 'idle') {
+      if (tutoriesStatus !== 'fulfilled') return;
+      const scrollPages = Math.ceil(tutories.length / 3);
+      setAmountScrollPages(scrollPages);
+      itemsAmount.current = 3 * scrollPages;
+      amountToTranslate.current = 100 / scrollPages;
+      return;
+    }
+    dispatch(fetchTutories()); // fetch tutories when tutoriesStatus is idle
+  }, [dispatch, tutoriesStatus, tutories.length]);
 
   return (
     <section className="center-container relative">
@@ -71,7 +72,7 @@ export default function Home() {
         <button
           type="button"
           className="arrow arrow--left"
-          onClick={() => { dispatch(translateLeft(amountToTranslate.current)); }}
+          onClick={() => { translateLeft(amountToTranslate.current); }}
           disabled={translated === 0}
         >
           <span className="material-symbols-outlined">
@@ -81,8 +82,8 @@ export default function Home() {
         <button
           type="button"
           className="arrow arrow--right"
-          onClick={() => { dispatch(translateRight(amountToTranslate.current)); }}
-          disabled={reachedMaxScroll}
+          onClick={() => { translateRight(amountToTranslate.current); }}
+          disabled={hasReachedMaxScroll}
         >
           <span className="material-symbols-outlined">
             play_arrow
