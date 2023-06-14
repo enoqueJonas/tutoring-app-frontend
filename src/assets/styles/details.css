@@ -1,7 +1,9 @@
 .details {
   display: grid;
   gap: 1.5rem;
-  width: min(100% - 3rem, 1440px);
+  /* stylelint-disable */
+  width: min(100% - 3rem, 1440px); /* this IS a valid value, but stylelint is not recognizing it */
+  /* stylelint-enable */
   margin-inline: auto;
   padding-inline: 1rem;
   height: 70vh;
@@ -53,15 +55,15 @@ button.details__button {
   font-size: 1.1rem;
 }
 
+.details__link span:last-child {
+  color: #f8cc3e;
+  font-size: 1.8rem;
+}
+
 button.details__button span:first-child {
   display: flex;
   align-items: center;
   gap: 0.4rem;
-}
-
-.details__link span:last-child {
-  color: #f8cc3e;
-  font-size: 1.8rem;
 }
 
 @media (min-width: 1024px) {
@@ -74,6 +76,7 @@ button.details__button span:first-child {
   .details img {
     height: 30rem;
   }
+
   button.details__button {
     margin-block: 2rem;
   }
