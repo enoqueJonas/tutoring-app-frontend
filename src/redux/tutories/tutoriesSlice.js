@@ -26,7 +26,14 @@ export const fetchTutories = createAsyncThunk(
 const tutoriesSlice = createSlice({
   name: 'tutories',
   initialState,
-  reducers: {},
+  reducers: {
+    addTutory: (state, { payload }) => ({
+      ...state, tutories: [...state.tutories, payload],
+    }),
+    deleteTutory: (state, { payload }) => ({
+      ...state, tutories: state.tutories.filter((tutory) => tutory.id === payload),
+    }),
+  },
   extraReducers(builder) {
     builder
       .addCase(fetchTutories.pending, (state) => ({
@@ -45,5 +52,7 @@ const tutoriesSlice = createSlice({
       }));
   },
 });
+
+export const { addTutory, deleteTutory } = tutoriesSlice.actions;
 
 export default tutoriesSlice.reducer;
