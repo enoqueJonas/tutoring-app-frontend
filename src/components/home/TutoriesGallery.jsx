@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import Tutory from './Tutory';
-import './tutories.css';
+import '../../assets/styles/tutories.css';
 
 export default function TutoriesGallery({
   tutories, isComputerWidth, amountScrollPages, itemsAmount, translated,
