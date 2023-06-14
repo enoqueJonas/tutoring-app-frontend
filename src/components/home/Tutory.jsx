@@ -1,15 +1,30 @@
 import PropTypes from 'prop-types';
-import { ReactComponent as FacebookIcon } from '../../assets/facebook.svg';
-import { ReactComponent as LinkedinIcon } from '../../assets/linkedin.svg';
-import { ReactComponent as TwitterIcon } from '../../assets/twitter.svg';
+import { useNavigate } from 'react-router-dom';
+import { ReactComponent as FacebookIcon } from '../../assets/icons/facebook.svg';
+import { ReactComponent as LinkedinIcon } from '../../assets/icons/linkedin.svg';
+import { ReactComponent as TwitterIcon } from '../../assets/icons/twitter.svg';
 
 export default function Tutory({
-  image, subject, description,
+  image, subject, description, id,
 }) {
+  const navigate = useNavigate();
+  const handleClick = () => { navigate(`/classes/${id}`); };
+  const handleKeyDown = (event) => {
+    if (event.key === 'Enter' || event.key === ' ') handleClick();
+  };
+
   return (
-    <div className="tutory all:center-text">
+    <div
+      className="tutory all:center-text"
+      onClick={handleClick}
+      onKeyDown={handleKeyDown}
+      role="button"
+      tabIndex={0}
+    >
       <img src={image} alt={`Tutory class about ${subject}`} />
-      <h2>{subject}</h2>
+      <h2>
+        {subject}
+      </h2>
       <div className="separator" />
       <p>{description}</p>
       <ul className="social-media">
@@ -38,4 +53,5 @@ Tutory.propTypes = {
   image: PropTypes.string.isRequired,
   subject: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired,
 };
