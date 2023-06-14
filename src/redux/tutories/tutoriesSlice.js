@@ -31,7 +31,7 @@ const tutoriesSlice = createSlice({
       ...state, tutories: [...state.tutories, payload],
     }),
     deleteTutory: (state, { payload }) => ({
-      ...state, tutories: state.tutories.filter((tutory) => tutory.id === payload),
+      ...state, tutories: state.tutories.filter((tutory) => tutory.id !== payload),
     }),
   },
   extraReducers(builder) {
