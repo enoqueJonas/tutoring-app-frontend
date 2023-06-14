@@ -2,7 +2,6 @@ import React, { useState, useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { useLoginUserMutation } from '../api/usersData';
-import { UserContext } from '../UserContext';
 import { updateUser } from '../redux/tutories/tutoriesSlice';
 
 const LoginFields = () => {
@@ -10,7 +9,6 @@ const LoginFields = () => {
   const navigate = useNavigate();
   const [name, setName] = useState('');
   const [login] = useLoginUserMutation();
-  const { setIsLoggedIn } = useContext(UserContext);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -21,8 +19,9 @@ const LoginFields = () => {
       .then((response) => {
         console.log(response);
         if (response.message === 'Logged In Successfully') {
-          setIsLoggedIn(true);
-          dispatch(updateUser({ loggedIn: true, data: {} }));
+          dispatch(updateUser({ loggedIn: true, data: response.user }));
+          console.log(response.user);
+          window.location.reload();
           navigate('/', { replace: true });
         } else {
           // Handle unsuccessful login

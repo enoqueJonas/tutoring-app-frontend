@@ -35,7 +35,6 @@ export default function Home() {
       loggedIn: currentUser && currentUser.logged_in,
       data: (currentUser && currentUser.user) || {},
     }));
-    // console.log(currentUser);
   }, [currentUser]);
 
   useEffect(() => {

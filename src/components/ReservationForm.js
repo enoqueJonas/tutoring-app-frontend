@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import { useCurrentUserQuery } from '../api/usersData';
 
 const ReservationForm = () => {
   const { data: currentUser } = useCurrentUserQuery();
 
-  const [user, setUser] = useState({});
+  const { user } = useSelector((store) => store.tutories);
 
   const [reservationInfo, setReservationInfo] = useState({
     city: '',
@@ -28,7 +29,6 @@ const ReservationForm = () => {
     };
 
     fetchClassesData();
-    setUser(currentUser);
     console.log(user);
   }, []);
 

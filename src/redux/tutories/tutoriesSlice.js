@@ -44,8 +44,8 @@ const tutoriesSlice = createSlice({
       const translate = state.translated - payload;
       return { ...state, translated: translate };
     },
-    updateUser: (state, action) => {
-      state.user = action.payload;
+    updateUser: (state, { payload }) => {
+      state.user = payload;
     },
   },
   // TODO: once the data is fetch add extra reducers
