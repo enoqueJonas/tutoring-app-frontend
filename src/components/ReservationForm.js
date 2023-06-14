@@ -1,8 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import { useCurrentUserQuery } from '../api/usersData';
 
 const ReservationForm = () => {
+  const { data: currentUser } = useCurrentUserQuery();
+
+  const [user, setUser] = useState({});
+
   const [reservationInfo, setReservationInfo] = useState({
     city: '',
     user_id: '',
@@ -23,7 +28,13 @@ const ReservationForm = () => {
     };
 
     fetchClassesData();
+    setUser(currentUser);
+    console.log(user);
   }, []);
+
+  if (!currentUser || !currentUser.user) {
+    return [];
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -40,6 +51,7 @@ const ReservationForm = () => {
         placeholder="Username"
         className="registration-form-filed m-[8px] h-[35px] w-[325px] rounded-lg"
         name="username"
+        value={currentUser.user.name || ''}
         onChange={(e) => setReservationInfo({ ...reservationInfo, user_id: e.target.value })}
       />
       <select
