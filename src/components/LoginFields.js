@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { useLoginUserMutation } from '../api/usersData';
@@ -20,7 +20,6 @@ const LoginFields = () => {
         console.log(response);
         if (response.message === 'Logged In Successfully') {
           dispatch(updateUser({ loggedIn: true, data: response.user }));
-          console.log(response.user);
           window.location.reload();
           navigate('/', { replace: true });
         } else {
