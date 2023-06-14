@@ -9,7 +9,7 @@ import './sidebar.css';
 
 function SideBar() {
   return (
-    <Navbar bg="light" expand="lg" className=" d-grid ">
+    <Navbar bg="light" expand="lg" className="sidenav d-grid ">
       <Container className="nav-container nav-color p-0  h-100">
         <Navbar.Brand href="#home" className="h1 p-1">Tutoring</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" className="m-2" />

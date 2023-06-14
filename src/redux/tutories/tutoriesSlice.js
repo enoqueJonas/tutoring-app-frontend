@@ -14,6 +14,7 @@ const initialState = {
   translated: 0,
   isComputerWidth: window.matchMedia('(min-width: 1024px)').matches,
   reachedMaxScroll: false,
+  user: { loggedIn: false, data: {} },
 };
 
 // TODO: deploy api and fetch data
@@ -43,6 +44,9 @@ const tutoriesSlice = createSlice({
       const translate = state.translated - payload;
       return { ...state, translated: translate };
     },
+    updateUser: (state, action) => {
+      state.user = action.payload;
+    },
   },
   // TODO: once the data is fetch add extra reducers
   // extraReducers(builder) {
@@ -60,7 +64,7 @@ const tutoriesSlice = createSlice({
 });
 
 export const {
-  updateIsComputerWidth, updateHasReachedMaxScrolled, translateLeft, translateRight,
+  updateIsComputerWidth, updateHasReachedMaxScrolled, translateLeft, translateRight, updateUser,
 } = tutoriesSlice.actions;
 
 export default tutoriesSlice.reducer;

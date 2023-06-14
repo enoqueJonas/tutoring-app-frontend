@@ -1,21 +1,33 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import TutoriesGallery from '../components/home/TutoriesGallery';
+import { useCurrentUserQuery } from '../api/usersData';
+import Login from './Login';
 import {
-  translateLeft, translateRight, updateHasReachedMaxScrolled, updateIsComputerWidth,
+  translateLeft, translateRight, updateHasReachedMaxScrolled, updateIsComputerWidth, updateUser,
 } from '../redux/tutories/tutoriesSlice';
+
 /* TODO: tutories should be fetched from API */
 
 export default function Home() {
   const dispatch = useDispatch();
   // import error and status once the API is deployed
   const {
-    tutories, translated, isComputerWidth, reachedMaxScroll,
+    tutories, translated, isComputerWidth, reachedMaxScroll, user,
   } = useSelector((store) => store.tutories);
+
+  const { data: currentUser, isLoading } = useCurrentUserQuery();
 
   const amountScrollPages = Math.ceil(tutories.length / 3); // ceil always rounds up
   const itemsAmount = 3 * amountScrollPages; // total slider width / amount items that fits
   const amountToTranslate = 100 / amountScrollPages;
+
+  useEffect(() => {
+    dispatch(updateUser({
+      loggedIn: currentUser && currentUser.logged_in,
+      data: (currentUser && currentUser.user) || {},
+    }));
+  }, [currentUser]);
 
   useEffect(() => {
     const mediaQuery = window.matchMedia('(min-width: 1024px)');
@@ -28,6 +40,14 @@ export default function Home() {
     const pagesScrolled = ((translated * -1) / amountToTranslate);
     dispatch(updateHasReachedMaxScrolled((amountScrollPages - 1) === pagesScrolled));
   }, [translated]);
+
+  if (isLoading) {
+    return <p>Loading...</p>;
+  }
+  // Check if the user is logged in, render the Login component if not
+  if (!user.loggedIn) {
+    return <Login />;
+  }
 
   return (
     <>
