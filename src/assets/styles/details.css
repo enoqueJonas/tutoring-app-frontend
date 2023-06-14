@@ -1,7 +1,6 @@
 .details {
   display: grid;
   gap: 1.5rem;
-  grid-template-columns: 70% 30%;
   width: min(100% - 3rem, 1440px);
   margin-inline: auto;
   padding-inline: 1rem;
@@ -63,4 +62,19 @@ button.details__button span:first-child {
 .details__link span:last-child {
   color: #f8cc3e;
   font-size: 1.8rem;
+}
+
+@media (min-width: 1024px) {
+  .details {
+    grid-template-columns: 70% 30%;
+  }
+}
+
+@media (max-width: 1023px) {
+  .details img {
+    height: 30rem;
+  }
+  button.details__button {
+    margin-block: 2rem;
+  }
 }
