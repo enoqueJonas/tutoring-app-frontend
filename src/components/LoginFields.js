@@ -17,14 +17,10 @@ const LoginFields = () => {
       name,
     }).unwrap()
       .then((response) => {
-        console.log(response);
         if (response.message === 'Logged In Successfully') {
           dispatch(updateUser({ loggedIn: true, data: response.user }));
           window.location.reload();
           navigate('/', { replace: true });
-        } else {
-          // Handle unsuccessful login
-          console.error('Invalid username');
         }
       })
       .catch((error) => {

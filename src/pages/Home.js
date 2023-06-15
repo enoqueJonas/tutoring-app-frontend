@@ -11,10 +11,6 @@ import {
 
 export default function Home() {
   const dispatch = useDispatch();
-  // const [user, setUser] = useState({
-  //   loggedIn: false,
-  //   user: {},
-  // });
   // import error and status once the API is deployed
   const {
     tutories, translated, isComputerWidth, reachedMaxScroll, user,
@@ -27,10 +23,6 @@ export default function Home() {
   const amountToTranslate = 100 / amountScrollPages;
 
   useEffect(() => {
-    // setUser({
-    //   loggedIn: currentUser && currentUser.logged_in,
-    //   user: (currentUser && currentUser.user) || {},
-    // });
     dispatch(updateUser({
       loggedIn: currentUser && currentUser.logged_in,
       data: (currentUser && currentUser.user) || {},

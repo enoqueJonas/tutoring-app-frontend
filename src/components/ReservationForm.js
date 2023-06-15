@@ -33,7 +33,6 @@ const ReservationForm = () => {
     };
 
     fetchClassesData();
-    console.log(user);
   }, []);
 
   if (!currentUser || !currentUser.user) {
@@ -48,9 +47,6 @@ const ReservationForm = () => {
       user_id: user.data.id,
       classSubject_id: reservationInfo.classSubject_id,
     })
-      .catch((error) => {
-        console.error('Error creating reservation:', error);
-      });
   };
 
   return (
