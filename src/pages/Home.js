@@ -1,13 +1,29 @@
 import { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import TutoriesGallery from '../components/home/TutoriesGallery';
-import { fetchTutories } from '../redux/tutories/tutoriesSlice';
+import { useCurrentUserQuery } from '../api/usersData';
+import Login from './Login';
+import {
+  fetchTutories,
+  updateUser,
+} from '../redux/tutories/tutoriesSlice';
 
-const mediaQuery = window.matchMedia('(min-width: 1024px)');
+/* TODO: tutories should be fetched from API */
 
 export default function Home() {
+  // import error and status once the API is deployed
   const dispatch = useDispatch();
-  const { tutories, tutoriesStatus } = useSelector((store) => store.tutories);
+  const { data: currentUser, isLoading } = useCurrentUserQuery();
+
+  useEffect(() => {
+    dispatch(updateUser({
+      loggedIn: currentUser && currentUser.logged_in,
+      data: (currentUser && currentUser.user) || {},
+    }));
+  }, [currentUser]);
+
+  const mediaQuery = window.matchMedia('(min-width: 1024px)');
+  const { tutories, tutoriesStatus, user } = useSelector((store) => store.tutories);
 
   const [translated, setTranslated] = useState(0);
   const [isComputerWidth, setIsComputerWidth] = useState(mediaQuery.matches);
@@ -50,6 +66,14 @@ export default function Home() {
     }
     dispatch(fetchTutories()); // fetch tutories when tutoriesStatus is idle
   }, [dispatch, tutoriesStatus, tutories.length]);
+
+  if (isLoading) {
+    return <p>Loading...</p>;
+  }
+  // Check if the user is logged in, render the Login component if not
+  if (!user.loggedIn) {
+    return <Login />;
+  }
 
   return (
     <section className="center-container relative">
