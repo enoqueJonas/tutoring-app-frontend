@@ -37,6 +37,8 @@ const router = createBrowserRouter([
       {
         path: '/reservation',
         element: <Reservation />,
+      },
+      {
         path: '/deleteClass',
         element: <DeleteClass />,
       },

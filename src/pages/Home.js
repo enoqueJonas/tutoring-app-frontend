@@ -4,23 +4,16 @@ import TutoriesGallery from '../components/home/TutoriesGallery';
 import { useCurrentUserQuery } from '../api/usersData';
 import Login from './Login';
 import {
-  translateLeft, translateRight, updateHasReachedMaxScrolled, updateIsComputerWidth, updateUser,
+  fetchTutories,
+  updateUser,
 } from '../redux/tutories/tutoriesSlice';
 
 /* TODO: tutories should be fetched from API */
 
 export default function Home() {
-  const dispatch = useDispatch();
   // import error and status once the API is deployed
-  const {
-    tutories, translated, isComputerWidth, reachedMaxScroll, user,
-  } = useSelector((store) => store.tutories);
-
+  const dispatch = useDispatch();
   const { data: currentUser, isLoading } = useCurrentUserQuery();
-
-  const amountScrollPages = Math.ceil(tutories.length / 3); // ceil always rounds up
-  const itemsAmount = 3 * amountScrollPages; // total slider width / amount items that fits
-  const amountToTranslate = 100 / amountScrollPages;
 
   useEffect(() => {
     dispatch(updateUser({
@@ -29,16 +22,8 @@ export default function Home() {
     }));
   }, [currentUser]);
 
-  useEffect(() => {
-    const mediaQuery = window.matchMedia('(min-width: 1024px)');
-    const onVwChange = ({ matches }) => { dispatch(updateIsComputerWidth(matches)); };
-import { fetchTutories } from '../redux/tutories/tutoriesSlice';
-
-const mediaQuery = window.matchMedia('(min-width: 1024px)');
-
-export default function Home() {
-  const dispatch = useDispatch();
-  const { tutories, tutoriesStatus } = useSelector((store) => store.tutories);
+  const mediaQuery = window.matchMedia('(min-width: 1024px)');
+  const { tutories, tutoriesStatus, user } = useSelector((store) => store.tutories);
 
   const [translated, setTranslated] = useState(0);
   const [isComputerWidth, setIsComputerWidth] = useState(mediaQuery.matches);

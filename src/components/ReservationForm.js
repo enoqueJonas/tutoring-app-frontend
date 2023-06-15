@@ -46,7 +46,7 @@ const ReservationForm = () => {
       city: reservationInfo.city,
       user_id: user.data.id,
       classSubject_id: reservationInfo.classSubject_id,
-    })
+    });
   };
 
   return (

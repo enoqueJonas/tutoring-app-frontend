@@ -71,7 +71,13 @@ const tutoriesSlice = createSlice({
 });
 
 export const {
-  updateIsComputerWidth, updateHasReachedMaxScrolled, translateLeft, translateRight, updateUser, addTutory, deleteTutory, 
+  updateIsComputerWidth,
+  updateHasReachedMaxScrolled,
+  translateLeft,
+  translateRight,
+  updateUser,
+  addTutory,
+  deleteTutory,
 } = tutoriesSlice.actions;
 
 export default tutoriesSlice.reducer;
