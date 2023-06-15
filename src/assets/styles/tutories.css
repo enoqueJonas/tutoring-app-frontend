@@ -1,0 +1,42 @@
+.tutories {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  transition: transform 700ms ease-in-out;
+}
+
+.tutory {
+  padding: 1rem;
+  transition: transform 325ms ease-in-out;
+}
+
+.tutory:hover {
+  transform: scale(1.025);
+}
+
+.tutory img {
+  width: 85%;
+  margin-inline: auto;
+  height: 300px;
+  object-fit: cover;
+  margin-bottom: 1rem;
+  border-radius: 30px;
+}
+
+.tutory .separator {
+  margin-block: 1rem;
+}
+
+.tutory p {
+  color: var(--secondary-dark);
+}
+
+.tutory .social-media {
+  justify-content: center;
+  margin-block: 1rem;
+}
+
+@media (min-width: 1024px) {
+  .tutories-wrapper {
+    overflow: hidden;
+  }
+}
