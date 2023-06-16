@@ -2,11 +2,11 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 export const usersApi = createApi({
   reducerPath: 'usersApi',
-  baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:3000' }),
+  baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:3000/', credentials: 'include' }),
   endpoints: (builder) => ({
     getUsers: builder.query({
       query: () => '/users',
-      providesTags: ['Users'],
+      providesTags: ['User'],
     }),
     createUser: builder.mutation({
       query: (user) => ({
@@ -14,16 +14,23 @@ export const usersApi = createApi({
         method: 'POST',
         body: user,
       }),
-      invalidatesTags: ['Users'],
+      invalidatesTags: ['User'],
     }),
     loginUser: builder.mutation({
       query: (name) => ({
-        url: 'login',
+        url: '/login',
         method: 'POST',
         body: name,
+        invalidatesTags: ['User'],
       }),
+    }),
+    currentUser: builder.query({
+      query: () => '/logged_in',
+      providesTags: ['User'],
     }),
   }),
 });
 
-export const { useGetUsersQuery, useCreateUserMutation, useLoginUserMutation } = usersApi;
+export const {
+  useGetUsersQuery, useCreateUserMutation, useLoginUserMutation, useCurrentUserQuery,
+} = usersApi;

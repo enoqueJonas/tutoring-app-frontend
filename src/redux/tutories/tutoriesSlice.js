@@ -5,11 +5,12 @@ const BASE_URL = 'https://tutoring-app-backend-group.onrender.com';
 
 const initialState = {
   tutories: [],
-  status: 'idle',
-  error: '',
+  tutoriesStatus: 'idle',
+  tutoriesError: '',
   translated: 0,
   isComputerWidth: window.matchMedia('(min-width: 1024px)').matches,
   reachedMaxScroll: false,
+  user: { loggedIn: false, data: {} },
 };
 
 export const fetchTutories = createAsyncThunk(
@@ -40,28 +41,43 @@ const tutoriesSlice = createSlice({
       const translate = state.translated - payload;
       return { ...state, translated: translate };
     },
+    updateUser: (state, { payload }) => {
+      state.user = payload;
+    },
+    addTutory: (state, { payload }) => ({
+      ...state, tutories: [...state.tutories, payload],
+    }),
+    deleteTutory: (state, { payload }) => ({
+      ...state, tutories: state.tutories.filter((tutory) => tutory.id !== payload),
+    }),
   },
   extraReducers(builder) {
     builder
       .addCase(fetchTutories.pending, (state) => ({
         ...state,
-        status: 'loading',
+        tutoriesStatus: 'loading',
       }))
       .addCase(fetchTutories.fulfilled, (state, { payload }) => ({
         ...state,
         tutories: payload,
-        status: 'fulfilled',
+        tutoriesStatus: 'fulfilled',
       }))
       .addCase(fetchTutories.rejected, (state, { error }) => ({
         ...state,
-        status: 'rejected',
-        error: error.message,
+        tutoriesStatus: 'rejected',
+        tutoriesError: error.message,
       }));
   },
 });
 
 export const {
-  updateIsComputerWidth, updateHasReachedMaxScrolled, translateLeft, translateRight,
+  updateIsComputerWidth,
+  updateHasReachedMaxScrolled,
+  translateLeft,
+  translateRight,
+  updateUser,
+  addTutory,
+  deleteTutory,
 } = tutoriesSlice.actions;
 
 export default tutoriesSlice.reducer;

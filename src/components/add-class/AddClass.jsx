@@ -92,7 +92,7 @@ const ClassForm = () => {
           <label htmlFor="price" className="form-label ">
             Price
             <input
-              type="text"
+              type="number"
               className="form-control shadow  bg-white rounded"
               id="price"
               placeholder="eg. $250"
@@ -105,7 +105,7 @@ const ClassForm = () => {
           <label htmlFor="duration" className="form-label ">
             Duration
             <input
-              type="text"
+              type="number"
               className="form-control shadow  bg-white rounded"
               id="duration"
               placeholder="eg. 50 minutes"
@@ -118,7 +118,7 @@ const ClassForm = () => {
           <label htmlFor="image" className="form-label ">
             image
             <input
-              type="text"
+              type="url"
               className="form-control shadow  bg-white rounded"
               id="image"
               placeholder="eg. https://www.example.com/image.jpg"
