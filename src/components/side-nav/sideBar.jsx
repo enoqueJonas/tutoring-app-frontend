@@ -18,7 +18,7 @@ function SideBar() {
         <Navbar.Collapse id="basic-navbar-nav " style={{ width: '15vw' }}>
           <Nav className="flex-column p-0 d-flex justify-content-center" style={{ width: '100%' }}>
             <Link className={`nav-link-item ${activeItem === 'home' ? 'active' : ''}`} to="home" onClick={() => setActiveItem('home')}>Home</Link>
-            <Link className={`nav-link-item ${activeItem === 'add' ? 'active' : ''}`} to="add" onClick={() => setActiveItem('add')}>Reservations</Link>
+            <Link className={`nav-link-item ${activeItem === 'reservation' ? 'active' : ''}`} to="reservation" onClick={() => setActiveItem('add')}>Reservations</Link>
             <Link className={`nav-link-item ${activeItem === 'test' ? 'active' : ''}`} to="test" onClick={() => setActiveItem('test')}>My Reservations</Link>
             <Link className={`nav-link-item ${activeItem === 'addClass' ? 'active' : ''}`} to="addClass" onClick={() => setActiveItem('addClass')}>Add Class</Link>
             <Link className={`nav-link-item ${activeItem === 'deleteClass' ? 'active' : ''}`} to="deleteClass" onClick={() => setActiveItem('deleteClass')}>Delete Class</Link>
