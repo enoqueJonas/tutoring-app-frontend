@@ -41,7 +41,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/deleteClass',
-        element: <ProtectedRoute component={DeleteClass}/>,
+        element: <ProtectedRoute component={DeleteClass} />,
       },
     ],
   },

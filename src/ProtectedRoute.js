@@ -12,15 +12,13 @@ const ProtectedRoute = ({ component: Component }) => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (!isLoading && !isError) {
-      dispatch(
-        updateUser({
-          loggedIn: currentUser.logged_in || false,
-          data: currentUser.user || {},
-        }),
-      );
-    }
-  }, [currentUser, dispatch, isError, isLoading]);
+    dispatch(
+      updateUser({
+        loggedIn: currentUser && currentUser.logged_in,
+        data: (currentUser && currentUser.user) || {},
+      }),
+    );
+  }, [currentUser]);
 
   if (isLoading) {
     return <h1 className="absolute z-50 flex justify-center items-center text-white bg-lime-500 h-screen w-screen">Loading...</h1>;
@@ -30,6 +28,16 @@ const ProtectedRoute = ({ component: Component }) => {
   }
 
   const isAuthenticated = user.loggedIn;
+
+  if (!isAuthenticated) {
+    const isAuthenticatedCookie = document.cookie.includes('_tutoring_key');
+    if (isAuthenticatedCookie) {
+      dispatch(updateUser({ loggedIn: true, data: currentUser.user }));
+    } else {
+      navigate('/login'); // Redirect the user to the login page
+      return null; // Render nothing while the redirection takes place
+    }
+  }
 
   if (!isAuthenticated) {
     navigate('/login'); // Redirect the user to the login page
