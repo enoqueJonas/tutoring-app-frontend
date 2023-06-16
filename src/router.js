@@ -25,15 +25,15 @@ const router = createBrowserRouter([
       },
       {
         path: 'home',
-        element: <Home component={Home} />,
+        element: <ProtectedRoute component={Home} />,
       },
       {
         path: 'classes/:subjectId',
-        element: <Details />,
+        element: <ProtectedRoute component={Details} />,
       },
       {
         path: '/addClass',
-        element: <ClassForm />,
+        element: <ProtectedRoute component={ClassForm} />,
       },
       {
         path: '/reservation',
@@ -41,7 +41,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/deleteClass',
-        element: <DeleteClass />,
+        element: <ProtectedRoute component={DeleteClass}/>,
       },
     ],
   },
