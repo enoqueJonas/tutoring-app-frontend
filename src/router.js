@@ -7,6 +7,7 @@ import ClassForm from './components/add-class/AddClass';
 import Reservation from './pages/Reservation';
 import Details from './pages/Details';
 import DeleteClass from './components/delete-class/deleteClass';
+import ProtectedRoute from './ProtectedRoute';
 
 const router = createBrowserRouter([
   {
@@ -36,7 +37,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/reservation',
-        element: <Reservation />,
+        element: <ProtectedRoute element={Reservation} />,
       },
       {
         path: '/deleteClass',
