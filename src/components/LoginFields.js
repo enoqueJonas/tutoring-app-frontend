@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { useLoginUserMutation } from '../api/usersData';
 import { updateUser } from '../redux/tutories/tutoriesSlice';
 
 const LoginFields = () => {
   const dispatch = useDispatch();
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
   const [name, setName] = useState('');
   const [login] = useLoginUserMutation();
 
@@ -19,8 +19,7 @@ const LoginFields = () => {
       .then((response) => {
         if (response.message === 'Logged In Successfully') {
           dispatch(updateUser({ loggedIn: true, data: response.user }));
-          console.log(response);
-          window.location.reload();
+          navigate('/');
         }
       })
       .catch((error) => {

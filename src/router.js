@@ -21,11 +21,11 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <Home />,
+        element: <ProtectedRoute component={Home} />,
       },
       {
         path: 'home',
-        element: <Home />,
+        element: <Home component={Home} />,
       },
       {
         path: 'classes/:subjectId',
@@ -37,7 +37,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/reservation',
-        element: <ProtectedRoute element={Reservation} />,
+        element: <ProtectedRoute component={Reservation} />,
       },
       {
         path: '/deleteClass',
