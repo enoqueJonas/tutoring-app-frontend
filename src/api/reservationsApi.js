@@ -21,5 +21,4 @@ export const reservationsApi = createApi({
   }),
 });
 
-export const { useGetReservationsQuery, useCreateReservationMutation } =
-  reservationsApi;
+export const { useGetReservationsQuery, useCreateReservationMutation } = reservationsApi;
