@@ -3,23 +3,15 @@ import { useDispatch, useSelector } from 'react-redux';
 import TutoriesGallery from '../components/home/TutoriesGallery';
 import { useCurrentUserQuery } from '../api/usersData';
 import Login from './Login';
-import { fetchTutories, updateUser } from '../redux/tutories/tutoriesSlice';
+import { fetchTutories } from '../redux/tutories/tutoriesSlice';
 
 /* TODO: tutories should be fetched from API */
 
 export default function Home() {
   // import error and status once the API is deployed
   const dispatch = useDispatch();
-  const { data: currentUser, isLoading } = useCurrentUserQuery();
+  const { isLoading } = useCurrentUserQuery();
 
-  useEffect(() => {
-    dispatch(
-      updateUser({
-        loggedIn: currentUser?.logged_in ?? false,
-        data: currentUser?.user ?? {},
-      }),
-    );
-  }, [dispatch, currentUser]);
   const mediaQuery = window.matchMedia('(min-width: 1024px)');
   const { tutories, tutoriesStatus, user } = useSelector(
     (store) => store.tutories,
