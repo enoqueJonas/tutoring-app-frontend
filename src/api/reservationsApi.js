@@ -2,7 +2,9 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 export const reservationsApi = createApi({
   reducerPath: 'reservationsApi',
-  baseQuery: fetchBaseQuery({ baseUrl: 'http://127.0.0.1:3000/' }),
+  baseQuery: fetchBaseQuery({
+    baseUrl: 'https://tutoring-app-backend-group.onrender.com/',
+  }),
   endpoints: (builder) => ({
     getReservations: builder.query({
       query: () => '/reservations',
@@ -19,4 +21,5 @@ export const reservationsApi = createApi({
   }),
 });
 
-export const { useGetReservationsQuery, useCreateReservationMutation } = reservationsApi;
+export const { useGetReservationsQuery, useCreateReservationMutation } =
+  reservationsApi;
