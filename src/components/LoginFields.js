@@ -20,7 +20,6 @@ const LoginFields = () => {
       .then((response) => {
         if (response.message === 'Logged In Successfully') {
           dispatch(updateUser({ loggedIn: true, data: response.user }));
-          // window.location.reload();
           navigate('/', { replace: true });
         }
       })
