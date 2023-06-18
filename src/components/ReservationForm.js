@@ -25,7 +25,9 @@ const ReservationForm = () => {
   useEffect(() => {
     const fetchClassesData = async () => {
       try {
-        const response = await axios.get('http://127.0.0.1:3000/class_subjects');
+        const response = await axios.get(
+          'https://tutoring-app-backend-group.onrender.com/class_subjects',
+        );
         setClasses(response.data);
       } catch (error) {
         console.log('Error fetching class data:', error);
@@ -66,16 +68,15 @@ const ReservationForm = () => {
       <select
         className="registration-form-filed m-[8px] h-[35px] w-[325px] rounded-lg"
         onChange={(e) => {
-          setReservationInfo({ ...reservationInfo, classSubject_id: e.target.value });
+          setReservationInfo({
+            ...reservationInfo,
+            classSubject_id: e.target.value,
+          });
         }}
       >
         <option className="text-black">Select a subject...</option>
         {classes.map((classe) => (
-          <option
-            id={classe.subject}
-            key={classe.id}
-            value={classe.id}
-          >
+          <option id={classe.subject} key={classe.id} value={classe.id}>
             {classe.subject}
           </option>
         ))}
