@@ -15,11 +15,12 @@ const LoginFields = () => {
 
     login({
       name,
-    }).unwrap()
+    })
+      .unwrap()
       .then((response) => {
         if (response.message === 'Logged In Successfully') {
           dispatch(updateUser({ loggedIn: true, data: response.user }));
-          window.location.reload();
+          // window.location.reload();
           navigate('/', { replace: true });
         }
       })
