@@ -5,10 +5,7 @@ import { useCurrentUserQuery } from '../api/usersData';
 import Login from './Login';
 import { fetchTutories } from '../redux/tutories/tutoriesSlice';
 
-/* TODO: tutories should be fetched from API */
-
 export default function Home() {
-  // import error and status once the API is deployed
   const dispatch = useDispatch();
   const { isLoading } = useCurrentUserQuery();
 
