@@ -3,10 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import TutoriesGallery from '../components/home/TutoriesGallery';
 import { useCurrentUserQuery } from '../api/usersData';
 import Login from './Login';
-import {
-  fetchTutories,
-  updateUser,
-} from '../redux/tutories/tutoriesSlice';
+import { fetchTutories, updateUser } from '../redux/tutories/tutoriesSlice';
 
 /* TODO: tutories should be fetched from API */
 
@@ -16,14 +13,17 @@ export default function Home() {
   const { data: currentUser, isLoading } = useCurrentUserQuery();
 
   useEffect(() => {
-    dispatch(updateUser({
-      loggedIn: currentUser && currentUser.logged_in,
-      data: (currentUser && currentUser.user) || {},
-    }));
-  }, [currentUser]);
-
+    dispatch(
+      updateUser({
+        loggedIn: currentUser?.logged_in ?? false,
+        data: currentUser?.user ?? {},
+      }),
+    );
+  }, [dispatch, currentUser]);
   const mediaQuery = window.matchMedia('(min-width: 1024px)');
-  const { tutories, tutoriesStatus, user } = useSelector((store) => store.tutories);
+  const { tutories, tutoriesStatus, user } = useSelector(
+    (store) => store.tutories,
+  );
 
   const [translated, setTranslated] = useState(0);
   const [isComputerWidth, setIsComputerWidth] = useState(mediaQuery.matches);
@@ -41,18 +41,22 @@ export default function Home() {
 
   useEffect(() => {
     /* create media match event listener for slider responsiveness */
-    const onVwChange = ({ matches }) => { setIsComputerWidth(matches); };
+    const onVwChange = ({ matches }) => {
+      setIsComputerWidth(matches);
+    };
     mediaQuery.addEventListener('change', onVwChange);
-    return () => { mediaQuery.removeEventListener('change', onVwChange); };
+    return () => {
+      mediaQuery.removeEventListener('change', onVwChange);
+    };
   }, [dispatch]);
 
   /* Determine if user has reached max permitted scroll in slider */
   useEffect(() => {
     if (tutoriesStatus !== 'fulfilled') return;
-    let pagesScrolled = ((translated * -1) / amountToTranslate.current);
+    let pagesScrolled = (translated * -1) / amountToTranslate.current;
     // when translated is 0 and amount to translate is also 0 pages scrolled isNaN
     pagesScrolled = Number.isNaN(pagesScrolled) ? 0 : pagesScrolled;
-    setHasReachedMaxScroll((amountScrollPages - 1) === pagesScrolled);
+    setHasReachedMaxScroll(amountScrollPages - 1 === pagesScrolled);
   }, [dispatch, translated, amountScrollPages, tutoriesStatus]);
 
   useEffect(() => {
@@ -80,7 +84,10 @@ export default function Home() {
       <div>
         <div className="all:center-text mb-1">
           <h1 className="title">Tutories Subjects</h1>
-          <p className="subtitle">Please select a subject about which you would like to receive tutories</p>
+          <p className="subtitle">
+            Please select a subject about which you would like to receive
+            tutories
+          </p>
         </div>
         <div className="separator mb-2" />
         <TutoriesGallery
@@ -92,28 +99,28 @@ export default function Home() {
         />
       </div>
       {isComputerWidth && (
-      <>
-        <button
-          type="button"
-          className="arrow arrow--left"
-          onClick={() => { translateLeft(amountToTranslate.current); }}
-          disabled={translated === 0}
-        >
-          <span className="material-symbols-outlined">
-            play_arrow
-          </span>
-        </button>
-        <button
-          type="button"
-          className="arrow arrow--right"
-          onClick={() => { translateRight(amountToTranslate.current); }}
-          disabled={hasReachedMaxScroll}
-        >
-          <span className="material-symbols-outlined">
-            play_arrow
-          </span>
-        </button>
-      </>
+        <>
+          <button
+            type="button"
+            className="arrow arrow--left"
+            onClick={() => {
+              translateLeft(amountToTranslate.current);
+            }}
+            disabled={translated === 0}
+          >
+            <span className="material-symbols-outlined">play_arrow</span>
+          </button>
+          <button
+            type="button"
+            className="arrow arrow--right"
+            onClick={() => {
+              translateRight(amountToTranslate.current);
+            }}
+            disabled={hasReachedMaxScroll}
+          >
+            <span className="material-symbols-outlined">play_arrow</span>
+          </button>
+        </>
       )}
     </section>
   );
