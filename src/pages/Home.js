@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import TutoriesGallery from '../components/home/TutoriesGallery';
 import { useCurrentUserQuery } from '../api/usersData';
-import Login from './Login';
+// import Login from './Login';
 import {
   fetchTutories,
   updateUser,
@@ -23,7 +23,7 @@ export default function Home() {
   }, [currentUser]);
 
   const mediaQuery = window.matchMedia('(min-width: 1024px)');
-  const { tutories, tutoriesStatus, user } = useSelector((store) => store.tutories);
+  const { tutories, tutoriesStatus } = useSelector((store) => store.tutories);
 
   const [translated, setTranslated] = useState(0);
   const [isComputerWidth, setIsComputerWidth] = useState(mediaQuery.matches);
@@ -71,9 +71,9 @@ export default function Home() {
     return <p>Loading...</p>;
   }
   // Check if the user is logged in, render the Login component if not
-  if (!user.loggedIn) {
-    return <Login />;
-  }
+  // if (!user.loggedIn) {
+  //   return <Login />;
+  // }
 
   return (
     <section className="center-container relative">

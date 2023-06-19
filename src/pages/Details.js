@@ -1,7 +1,6 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router';
-import { Link } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import findTutoryById from '../helpers/findTutoryById';
 import { fetchTutory, setTutory, setTutoryError } from '../redux/tutories/tutorySlice';
 import '../assets/styles/details.css';

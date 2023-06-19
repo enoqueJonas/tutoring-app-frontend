@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useLoginUserMutation } from '../api/usersData';
 import { updateUser } from '../redux/tutories/tutoriesSlice';
 
@@ -9,18 +9,19 @@ const LoginFields = () => {
   const navigate = useNavigate();
   const [name, setName] = useState('');
   const [login] = useLoginUserMutation();
+  const { user } = useSelector((store) => store.tutories);
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
     login({
       name,
-    }).unwrap()
+    })
+      .unwrap()
       .then((response) => {
         if (response.message === 'Logged In Successfully') {
           dispatch(updateUser({ loggedIn: true, data: response.user }));
-          window.location.reload();
-          navigate('/', { replace: true });
+          console.log(user);
         }
       })
       .catch((error) => {
@@ -28,6 +29,12 @@ const LoginFields = () => {
         console.error(error);
       });
   };
+
+  useEffect(() => {
+    if (user.loggedIn) {
+      navigate('/');
+    }
+  }, [user.loggedIn, dispatch]);
 
   return (
     <form
