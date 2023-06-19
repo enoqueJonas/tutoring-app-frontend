@@ -1,22 +1,46 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchTutories, deleteTutory } from '../../redux/deleteClass/deleteClassSlice';
+import { fetchReservations} from '../../redux/myReservations/myReservationsSlice';
 import './myReservations.css';
+// import { ReactComponent as DeleteIcon } from '../../assets/del.svg';
 
+const MyReservations = () => {
+  const dispatch = useDispatch();
+  const reservations = useSelector((state) => state.reservations);
 
-const myReservations = () => {
-    return (
-      <div>
-        <section className="rel animate__animated animate__fadeIn">
-          <div className="all:center-text mb-1">
-            <h1 className="title">My Reservations</h1>
-            <p className="subtitle">Here are all the reservations made so far</p>
-          </div>
-          <div className="separator mb-2" />
+  useEffect(() => {
+    dispatch(fetchReservations());
+  }, [dispatch]);
 
-        </section>
-      </div>
-    );
-  };
-  
-export default myReservations;
+  // const handleDeleteClass = (classId) => {
+  //   dispatch(deleteTutory(classId));
+  // };
+
+  return (
+    <div>
+      <section className="rel animate__animated animate__fadeIn">
+        <div className="all:center-text mb-1">
+          <h1 className="title">My Reservations</h1>
+          <p className="subtitle">Here are all the reservations made so far</p>
+        </div>
+        <div className="separator mb-2" />
+        
+        <div className='tutory-container'>
+          {reservations.map((classItem) => (
+            <div key={classItem.id} className="tutory-item">
+                <div className="tutory-content">
+                  <span className="tutory-subject">{classItem.date}</span>
+                  <span className="tutory-subject">{classItem.city}</span>
+                  {/* <button className="delete-button" onClick={() => handleDeleteClass(classItem.id)}> */}
+                    {/* <DeleteIcon /> */}
+                  {/* </button> */}
+                </div>
+              </div>
+          ))}
+        </div>
+      </section>
+    </div>
+  );
+};
+
+export default MyReservations;
