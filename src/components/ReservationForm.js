@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { useCreateReservationMutation } from '../api/reservationsApi';
 import { useCurrentUserQuery } from '../api/usersData';
@@ -24,9 +25,7 @@ const ReservationForm = () => {
   useEffect(() => {
     const fetchClassesData = async () => {
       try {
-        const response = await axios.get(
-          'https://tutoring-app-backend-group.onrender.com/class_subjects',
-        );
+        const response = await axios.get('http://127.0.0.1:3000/class_subjects');
         setClasses(response.data);
       } catch (error) {
         console.log('Error fetching class data:', error);
@@ -67,15 +66,16 @@ const ReservationForm = () => {
       <select
         className="registration-form-filed m-[8px] h-[35px] w-[325px] rounded-lg"
         onChange={(e) => {
-          setReservationInfo({
-            ...reservationInfo,
-            classSubject_id: e.target.value,
-          });
+          setReservationInfo({ ...reservationInfo, classSubject_id: e.target.value });
         }}
       >
         <option className="text-black">Select a subject...</option>
         {classes.map((classe) => (
-          <option id={classe.subject} key={classe.id} value={classe.id}>
+          <option
+            id={classe.subject}
+            key={classe.id}
+            value={classe.id}
+          >
             {classe.subject}
           </option>
         ))}
@@ -98,9 +98,12 @@ const ReservationForm = () => {
       />
       <input
         type="submit"
-        value="Reserve"
+        value="Register"
         className="registration-form-filed m-[8px] h-[35px] w-[325px] rounded-lg border border-white-500 text-white hover:bg-white hover:bg-opacity-40"
       />
+      <Link to="/" className="text-white text-sm">
+        Click here to login if you are already registered!
+      </Link>
     </form>
   );
 };
