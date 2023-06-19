@@ -6,7 +6,8 @@ import './myReservations.css';
 
 const MyReservations = () => {
   const dispatch = useDispatch();
-  const reservations = useSelector((state) => state.reservations);
+  // const reservations = useSelector((state) => state.reservations);
+  const reservations = useSelector((state) => state.myReservations.reservations);
 
   useEffect(() => {
     dispatch(fetchReservations());

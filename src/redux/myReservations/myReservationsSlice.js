@@ -4,7 +4,7 @@ import axios from 'axios';
 const BASE_URL = 'https://tutoring-app-backend-group.onrender.com';
 
 const initialState = {
-  tutories: [],
+  reservations: [],
   status: 'idle',
   error: '',
   translated: 0,
