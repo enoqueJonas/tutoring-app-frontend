@@ -99,12 +99,9 @@ const ReservationForm = () => {
       />
       <input
         type="submit"
-        value="Register"
+        value="Reserve"
         className="registration-form-filed m-[8px] h-[35px] w-[325px] rounded-lg border border-white-500 text-white hover:bg-white hover:bg-opacity-40"
       />
-      <Link to="/" className="text-white text-sm">
-        Click here to login if you are already registered!
-      </Link>
     </form>
   );
 };
