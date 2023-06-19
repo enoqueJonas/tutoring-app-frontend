@@ -7,6 +7,7 @@ import ClassForm from './components/add-class/AddClass';
 import Reservation from './pages/Reservation';
 import Details from './pages/Details';
 import DeleteClass from './components/delete-class/deleteClass';
+import AddResForm from './components/add-res';
 
 const router = createBrowserRouter([
   {
@@ -41,6 +42,10 @@ const router = createBrowserRouter([
       {
         path: '/deleteClass',
         element: <DeleteClass />,
+      },
+      {
+        path: '/resTest',
+        element: <AddResForm />,
       },
     ],
   },
