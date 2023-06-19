@@ -21,7 +21,8 @@ const LoginFields = () => {
       .then((response) => {
         if (response.message === 'Logged In Successfully') {
           dispatch(updateUser({ loggedIn: true, data: response.user }));
-          console.log(user);
+
+          navigate('/');
         }
       })
       .catch((error) => {
