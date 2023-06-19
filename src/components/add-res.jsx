@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 /* eslint-disable react/jsx-props-no-multi-spaces */
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
