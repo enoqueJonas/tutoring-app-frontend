@@ -28,7 +28,7 @@ const ReservationForm = () => {
         const response = await axios.get('https://tutoring-app-backend-group.onrender.com/class_subjects');
         setClasses(response.data);
       } catch (error) {
-        console.log('Error fetching class data:', error);
+        console.log('Error fetching class data:', error, classes);
       }
     };
 
@@ -59,11 +59,11 @@ const ReservationForm = () => {
         placeholder="Username"
         className="registration-form-filed m-[8px] h-[35px] w-[325px] rounded-lg"
         name="username"
-        value={currentUser.user.name || ''}
+        // value={currentUser.user.name || ''}
         onChange={(e) => setReservationInfo({ ...reservationInfo, user_id: e.target.value })}
         required
       />
-      <select
+      {/* <select
         className="registration-form-filed m-[8px] h-[35px] w-[325px] rounded-lg"
         onChange={(e) => {
           setReservationInfo({ ...reservationInfo, classSubject_id: e.target.value });
@@ -79,7 +79,7 @@ const ReservationForm = () => {
             {classe.subject}
           </option>
         ))}
-      </select>
+      </select> */}
       <input
         type="text"
         placeholder="City"

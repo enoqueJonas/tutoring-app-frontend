@@ -68,7 +68,7 @@ export default function Home() {
   }, [dispatch, tutoriesStatus, tutories.length]);
 
   if (isLoading) {
-    return <p>Loading...</p>;
+    return <h1 className="absolute z-50 flex justify-center items-center text-white bg-lime-500 h-screen w-screen">Loading...</h1>;
   }
   // Check if the user is logged in, render the Login component if not
   // if (!user.loggedIn) {
