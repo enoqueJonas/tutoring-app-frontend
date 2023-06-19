@@ -70,10 +70,6 @@ export default function Home() {
   if (isLoading) {
     return <h1 className="absolute z-50 flex justify-center items-center text-white bg-lime-500 h-screen w-screen">Loading...</h1>;
   }
-  // Check if the user is logged in, render the Login component if not
-  // if (!user.loggedIn) {
-  //   return <Login />;
-  // }
 
   return (
     <section className="center-container relative">
