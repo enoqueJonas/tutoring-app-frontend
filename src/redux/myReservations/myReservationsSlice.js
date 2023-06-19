@@ -10,8 +10,8 @@ const initialState = {
   translated: 0,
 };
 
-export const fetchTutories = createAsyncThunk(
-  'tutories/get',
+export const fetchReservations = createAsyncThunk(
+  'reservations/get',
   () => new Promise((resolve, reject) => {
     axios
       .get(`${BASE_URL}/reservations`)
@@ -24,55 +24,55 @@ export const fetchTutories = createAsyncThunk(
   }),
 );
 
-export const deleteTutory = createAsyncThunk(
-  'tutories/delete',
-  async (classId, { getState }) => {
-    try {
-      await axios.delete(`${BASE_URL}/class_subjects/${classId}`);
-      const { tutories } = getState().deleteClass;
-      const updatedTutories = tutories.filter((classItem) => classItem.id !== classId);
-      return updatedTutories;
-    } catch (error) {
-      throw new Error('Failed to delete the class.');
-    }
-  },
-);
+// export const deleteTutory = createAsyncThunk(
+//   'tutories/delete',
+//   async (classId, { getState }) => {
+//     try {
+//       await axios.delete(`${BASE_URL}/class_subjects/${classId}`);
+//       const { tutories } = getState().deleteClass;
+//       const updatedTutories = tutories.filter((classItem) => classItem.id !== classId);
+//       return updatedTutories;
+//     } catch (error) {
+//       throw new Error('Failed to delete the class.');
+//     }
+//   },
+// );
 
-const deleteClassSlice = createSlice({
-  name: 'delete-class',
+const myReservationsSlice = createSlice({
+  name: 'my-reservations',
   initialState,
   reducers: {},
   extraReducers(builder) {
     builder
-      .addCase(fetchTutories.pending, (state) => ({
+      .addCase(fetchReservations.pending, (state) => ({
         ...state,
         status: 'loading',
       }))
-      .addCase(fetchTutories.fulfilled, (state, { payload }) => ({
+      .addCase(fetchReservations.fulfilled, (state, { payload }) => ({
         ...state,
         tutories: payload,
         status: 'fulfilled',
       }))
-      .addCase(fetchTutories.rejected, (state, { error }) => ({
+      .addCase(fetchReservations.rejected, (state, { error }) => ({
         ...state,
         status: 'rejected',
         error: error.message,
       }))
-      .addCase(deleteTutory.pending, (state) => ({
-        ...state,
-        status: 'loading',
-      }))
-      .addCase(deleteTutory.fulfilled, (state, { payload }) => ({
-        ...state,
-        tutories: payload,
-        status: 'fulfilled',
-      }))
-      .addCase(deleteTutory.rejected, (state, { error }) => ({
-        ...state,
-        status: 'rejected',
-        error: error.message,
-      }));
+    //   .addCase(deleteTutory.pending, (state) => ({
+    //     ...state,
+    //     status: 'loading',
+    //   }))
+    //   .addCase(deleteTutory.fulfilled, (state, { payload }) => ({
+    //     ...state,
+    //     tutories: payload,
+    //     status: 'fulfilled',
+    //   }))
+    //   .addCase(deleteTutory.rejected, (state, { error }) => ({
+    //     ...state,
+    //     status: 'rejected',
+    //     error: error.message,
+    //   }));
   },
 });
 
-export default deleteClassSlice.reducer;
+export default myReservationsSlice.reducer;
