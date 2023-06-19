@@ -1,11 +1,7 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import SideBar from './components/side-nav/sideBar';
-import { UserContext } from './UserContext';
-import Home from './pages/Home';
-import Login from './pages/Login';
 
 function App() {
-  const { isLoggedIn } = useContext(UserContext);
   return (
     <section className="container-fluid">
       <div className="row">
@@ -14,9 +10,7 @@ function App() {
         </div>
         <div className="col-md-9" style={{ width: '85vw' }}>
           <div className="container" />
-          <main role="main" className="px-4">
-            {isLoggedIn ? <Home /> : <Login />}
-          </main>
+          <main role="main" className="px-4" />
         </div>
       </div>
     </section>
