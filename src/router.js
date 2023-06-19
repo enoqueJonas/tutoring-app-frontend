@@ -7,6 +7,7 @@ import ClassForm from './components/add-class/AddClass';
 import Reservation from './pages/Reservation';
 import Details from './pages/Details';
 import DeleteClass from './components/delete-class/deleteClass';
+import ProtectedRoute from './ProtectedRoute';
 
 const router = createBrowserRouter([
   {
@@ -20,27 +21,27 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <Home />,
+        element: <ProtectedRoute component={Home} />,
       },
       {
         path: 'home',
-        element: <Home />,
+        element: <ProtectedRoute component={Home} />,
       },
       {
         path: 'classes/:subjectId',
-        element: <Details />,
+        element: <ProtectedRoute component={Details} />,
       },
       {
         path: '/addClass',
-        element: <ClassForm />,
+        element: <ProtectedRoute component={ClassForm} />,
       },
       {
         path: '/reservation',
-        element: <Reservation />,
+        element: <ProtectedRoute component={Reservation} />,
       },
       {
         path: '/deleteClass',
-        element: <DeleteClass />,
+        element: <ProtectedRoute component={DeleteClass} />,
       },
     ],
   },
