@@ -22,6 +22,7 @@ function SideBar() {
             <Link className={`nav-link-item ${activeItem === 'test' ? 'active' : ''}`} to="test" onClick={() => setActiveItem('test')}>My Reservations</Link>
             <Link className={`nav-link-item ${activeItem === 'addClass' ? 'active' : ''}`} to="addClass" onClick={() => setActiveItem('addClass')}>Add Class</Link>
             <Link className={`nav-link-item ${activeItem === 'deleteClass' ? 'active' : ''}`} to="deleteClass" onClick={() => setActiveItem('deleteClass')}>Delete Class</Link>
+            <Link className={`nav-link-item ${activeItem === 'resTest' ? 'active' : ''}`} to="resTest" onClick={() => setActiveItem('resTest')}>Add Reservation</Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
