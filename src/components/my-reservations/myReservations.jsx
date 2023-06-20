@@ -39,6 +39,18 @@ const MyReservations = () => {
               </div>
           ))}
         </div>
+
+
+            <div className="tutory-item">
+              <div className="tutory-image" style={{ backgroundImage: `url(https://www.google.com/url?sa=i&url=https%3A%2F%2Ftheconversation.com%2Fphysics-is-taught-badly-because-teachers-struggle-with-basic-concepts-86083&psig=AOvVaw267uVfngP3Yi8gJ1EOJ6DX&ust=1687355842473000&source=images&cd=vfe&ved=0CBEQjRxqFwoTCKDX4b-A0v8CFQAAAAAdAAAAABAE)` }}>
+                  <span className="tutory-subject">Physics</span>
+                  <span className="tutory-subject">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc at commodo nisl. Curabitur et sagittis justo. Nulla leo dolor, luctus eget aliquam porttitor</span>
+                  <span className="tutory-subject">12-06-2023</span>
+                  <span className="tutory-subject">Kano</span>
+                </div>
+            </div>
+
+
       </section>
     </div>
   );
