@@ -8,7 +8,19 @@
 
 .reservations-content {
   padding: 10px;
-  width: 50vw;
+  width: 80vw;
   background-color: #9ac10ed7;
   color: white;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table td {
+  width: 25%;
+  white-space: wrap;
+  border: 1px dashed black;
+  padding: 8px;
 }

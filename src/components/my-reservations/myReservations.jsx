@@ -41,7 +41,7 @@ const MyReservations = () => {
         </div>
 
 
-            <table className='reservations-content'>
+            <table className='reservations-content table'>
               <thead>
                 <tr>
                   <th>Subject</th>
