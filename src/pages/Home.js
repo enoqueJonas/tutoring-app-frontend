@@ -1,11 +1,10 @@
 import { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import TutoriesGallery from '../components/home/TutoriesGallery';
-import { useCurrentUserQuery } from '../api/usersData';
+// import { useCurrentUserQuery } from '../api/usersData';
 // import Login from './Login';
 import {
   fetchTutories,
-  updateUser,
 } from '../redux/tutories/tutoriesSlice';
 
 /* TODO: tutories should be fetched from API */
@@ -13,14 +12,6 @@ import {
 export default function Home() {
   // import error and status once the API is deployed
   const dispatch = useDispatch();
-  const { data: currentUser, isLoading } = useCurrentUserQuery();
-
-  useEffect(() => {
-    dispatch(updateUser({
-      loggedIn: currentUser && currentUser.logged_in,
-      data: (currentUser && currentUser.user) || {},
-    }));
-  }, [currentUser]);
 
   const mediaQuery = window.matchMedia('(min-width: 1024px)');
   const { tutories, tutoriesStatus } = useSelector((store) => store.tutories);
@@ -66,10 +57,6 @@ export default function Home() {
     }
     dispatch(fetchTutories()); // fetch tutories when tutoriesStatus is idle
   }, [dispatch, tutoriesStatus, tutories.length]);
-
-  if (isLoading) {
-    return <h1 className="absolute z-50 flex justify-center items-center text-white bg-lime-500 h-screen w-screen">Loading...</h1>;
-  }
 
   return (
     <section className="center-container relative">

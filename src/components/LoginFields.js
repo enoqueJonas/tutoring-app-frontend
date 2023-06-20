@@ -21,8 +21,6 @@ const LoginFields = () => {
       .then((response) => {
         if (response.message === 'Logged In Successfully') {
           dispatch(updateUser({ loggedIn: true, data: response.user }));
-          console.log('Login debug');
-          navigate('/');
         }
       })
       .catch((error) => {
@@ -32,6 +30,7 @@ const LoginFields = () => {
   };
 
   useEffect(() => {
+    console.log(user);
     if (user.loggedIn) {
       navigate('/');
     }

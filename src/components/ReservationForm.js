@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { useCreateReservationMutation } from '../api/reservationsApi';
 import { useCurrentUserQuery } from '../api/usersData';
@@ -25,11 +24,10 @@ const ReservationForm = () => {
   useEffect(() => {
     const fetchClassesData = async () => {
       try {
-        const response = await axios.get('https://tutoring-app-backend-group.onrender.com/class_subjects');
+        const response = await axios.get('http://127.0.0.1:3000/class_subjects', { withCredentials: true });
         setClasses(response.data);
-        console.log(response);
       } catch (error) {
-        console.log('Error fetching class data:', error, classes);
+        console.error('Error fetching class data:', error, classes);
       }
     };
 
@@ -64,7 +62,7 @@ const ReservationForm = () => {
         onChange={(e) => setReservationInfo({ ...reservationInfo, user_id: e.target.value })}
         required
       />
-      {/* <select
+      <select
         className="registration-form-filed m-[8px] h-[35px] w-[325px] rounded-lg"
         onChange={(e) => {
           setReservationInfo({ ...reservationInfo, classSubject_id: e.target.value });
@@ -80,7 +78,7 @@ const ReservationForm = () => {
             {classe.subject}
           </option>
         ))}
-      </select> */}
+      </select>
       <input
         type="text"
         placeholder="City"
@@ -99,12 +97,9 @@ const ReservationForm = () => {
       />
       <input
         type="submit"
-        value="Register"
+        value="Reserve"
         className="registration-form-filed m-[8px] h-[35px] w-[325px] rounded-lg border border-white-500 text-white hover:bg-white hover:bg-opacity-40"
       />
-      <Link to="/" className="text-white text-sm">
-        Click here to login if you are already registered!
-      </Link>
     </form>
   );
 };

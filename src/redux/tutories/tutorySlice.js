@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-const BASE_URL = 'https://tutoring-app-backend-group.onrender.com';
+const BASE_URL = 'http://127.0.0.1:3000';
 
 const initialState = {
   tutory: {},
