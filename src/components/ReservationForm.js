@@ -12,8 +12,7 @@ const ReservationForm = () => {
     city: '',
     user_id: '',
     classSubject_id: '',
-    start: '',
-    date: '',
+    date: Date.now,
   });
 
   const [classes, setClasses] = useState([]);
@@ -43,8 +42,7 @@ const ReservationForm = () => {
       city: '',
       user_id: '',
       classSubject_id: '',
-      start: '',
-      date: '',
+      date: Date.now,
     });
   };
 
