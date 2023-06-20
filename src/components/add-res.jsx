@@ -118,7 +118,7 @@ const AddResForm = () => {
             />
           </label>
         </div>
-        <div className="d-none">
+        <div className="mb-3 animate__animated animate__fadeIn">
           <label htmlFor="user_id" className="form-label">
             User_id
             <input
