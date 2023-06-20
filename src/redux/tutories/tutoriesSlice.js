@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-const BASE_URL = 'https://test-reservation-backend.onrender.com';
+const BASE_URL = 'https://tutoring-front-end.onrender.com';
 
 const initialState = {
   tutories: [],

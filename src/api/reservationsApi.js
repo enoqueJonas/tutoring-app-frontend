@@ -3,7 +3,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 export const reservationsApi = createApi({
   reducerPath: 'reservationsApi',
   baseQuery: fetchBaseQuery({
-    baseUrl: 'https://test-reservation-backend.onrender.com/',
+    baseUrl: 'https://tutoring-front-end.onrender.com/',
   }),
   endpoints: (builder) => ({
     getReservations: builder.query({

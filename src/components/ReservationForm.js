@@ -26,7 +26,7 @@ const ReservationForm = () => {
     const fetchClassesData = async () => {
       try {
         const response = await axios.get(
-          'https://test-reservation-backend.onrender.com/class_subjects',
+          'https://tutoring-front-end.onrender.com/class_subjects',
         );
         setClasses(response.data);
       } catch (error) {

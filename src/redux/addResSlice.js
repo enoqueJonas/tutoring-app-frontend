@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk, createAction } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-const API_URL = 'https://test-reservation-backend.onrender.com/reservations';
+const API_URL = 'https://tutoring-front-end.onrender.com/reservations';
 
 export const addReservation = createAction('class/addReservation');
 export const createReservation = createAsyncThunk(

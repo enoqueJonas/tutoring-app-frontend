@@ -9,7 +9,7 @@ import { createReservation } from '../redux/addResSlice';
 const fetchClasses = createAsyncThunk(
   'classes/fetchClasses',
   () => axios
-    .get('https://test-reservation-backend.onrender.com/class_subjects')
+    .get('https://tutoring-front-end.onrender.com/class_subjects')
     .then((response) => response.data),
 );
 
