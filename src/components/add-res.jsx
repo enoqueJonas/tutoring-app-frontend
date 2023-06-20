@@ -1,10 +1,9 @@
-/* eslint-disable camelcase */
-/* eslint-disable react/jsx-props-no-multi-spaces */
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { createReservation } from '../redux/addResSlice';
+import { useCurrentUserQuery } from '../api/usersData';
 
 const fetchClasses = createAsyncThunk(
   'classes/fetchClasses',
@@ -20,6 +19,8 @@ const AddResForm = () => {
   const [submitted, setSubmitted] = useState(false);
   const [user_id, setUser_id] = useState('');
   const [classList, setClassList] = useState([]);
+  const [city, setCity] = useState('');
+  const { data: currentUser } = useCurrentUserQuery();
 
   useEffect(() => {
     dispatch(fetchClasses())
@@ -28,7 +29,11 @@ const AddResForm = () => {
           setClassList(action.payload);
         }
       });
-  }, [dispatch]);
+
+    if (currentUser && currentUser.user) {
+      setUser_id(currentUser.user.id);
+    }
+  }, [dispatch, currentUser]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -41,12 +46,14 @@ const AddResForm = () => {
       classSubject_id,
       date,
       user_id,
+      city,
     };
 
     dispatch(createReservation(reservation));
     setClassSubject_id('');
     setDate('');
     setUser_id('');
+    setCity('');
     setSubmitted(true);
   };
 
@@ -75,7 +82,7 @@ const AddResForm = () => {
                 <option value="">Select a class</option>
                 {classList.map((classItem) => (
                   <option key={classItem.id} value={classItem.id}>
-                    {classItem.id}
+                    {classItem.subject}
                   </option>
                 ))}
               </select>
@@ -88,7 +95,7 @@ const AddResForm = () => {
           <label htmlFor="date" className="form-label">
             Date
             <input
-              type="text"
+              type="date"
               className="form-control shadow bg-white rounded"
               id="date"
               placeholder="eg. 2021-10-10"
@@ -98,20 +105,31 @@ const AddResForm = () => {
           </label>
         </div>
         <div className="mb-3 animate__animated animate__fadeIn">
+          <label htmlFor="city" className="form-label">
+            City
+            <input
+              type="text"
+              className="form-control shadow bg-white rounded"
+              id="city"
+              placeholder="eg. New York"
+              value={city}
+              onChange={(e) => setCity(e.target.value)}
+            />
+          </label>
+        </div>
+        <div className="d-none">
           <label htmlFor="user_id" className="form-label">
             User_id
             <input
-
               type="text"
               className="form-control shadow bg-white rounded"
               id="user_id"
-              placeholder="eg. 1"
               value={user_id}
               onChange={(e) => setUser_id(e.target.value)}
             />
           </label>
         </div>
-        <button type="submit" className="btn btn-primary animate__animated animate__fadeIn">
+        <button type="submit" className="btn-green">
           Add Reservation
         </button>
       </form>
