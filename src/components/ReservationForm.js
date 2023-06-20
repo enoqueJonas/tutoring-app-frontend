@@ -26,7 +26,7 @@ const ReservationForm = () => {
     const fetchClassesData = async () => {
       try {
         const response = await axios.get(
-          'https://tutoring-app-backend-group.onrender.com/class_subjects',
+          'https://test-reservation-backend.onrender.com/class_subjects',
         );
         setClasses(response.data);
       } catch (error) {
@@ -62,7 +62,9 @@ const ReservationForm = () => {
         className="registration-form-filed m-[8px] h-[35px] w-[325px] rounded-lg"
         name="username"
         value={currentUser.user.name || ''}
-        onChange={(e) => setReservationInfo({ ...reservationInfo, user_id: e.target.value })}
+        onChange={(e) =>
+          setReservationInfo({ ...reservationInfo, user_id: e.target.value })
+        }
         required
       />
       <select
@@ -86,7 +88,9 @@ const ReservationForm = () => {
         placeholder="City"
         className="registration-form-filed m-[8px] h-[35px] w-[325px] rounded-lg"
         name="email"
-        onChange={(e) => setReservationInfo({ ...reservationInfo, city: e.target.value })}
+        onChange={(e) =>
+          setReservationInfo({ ...reservationInfo, city: e.target.value })
+        }
         required
       />
       <input
@@ -94,7 +98,9 @@ const ReservationForm = () => {
         placeholder="Date"
         className="registration-form-filed m-[8px] h-[35px] w-[325px] rounded-lg"
         name="email"
-        onChange={(e) => setReservationInfo({ ...reservationInfo, date: e.target.value })}
+        onChange={(e) =>
+          setReservationInfo({ ...reservationInfo, date: e.target.value })
+        }
         required
       />
       <input

@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-const BASE_URL = 'https://tutoring-app-backend-group.onrender.com';
+const BASE_URL = 'https://test-reservation-backend.onrender.com';
 
 const initialState = {
   tutories: [],
@@ -12,16 +12,17 @@ const initialState = {
 
 export const fetchTutories = createAsyncThunk(
   'tutories/get',
-  () => new Promise((resolve, reject) => {
-    axios
-      .get(`${BASE_URL}/class_subjects`)
-      .then(({ data }) => {
-        resolve(data);
-      })
-      .catch((error) => {
-        reject(error);
-      });
-  }),
+  () =>
+    new Promise((resolve, reject) => {
+      axios
+        .get(`${BASE_URL}/class_subjects`)
+        .then(({ data }) => {
+          resolve(data);
+        })
+        .catch((error) => {
+          reject(error);
+        });
+    }),
 );
 
 export const deleteTutory = createAsyncThunk(
@@ -30,7 +31,9 @@ export const deleteTutory = createAsyncThunk(
     try {
       await axios.delete(`${BASE_URL}/class_subjects/${classId}`);
       const { tutories } = getState().deleteClass;
-      const updatedTutories = tutories.filter((classItem) => classItem.id !== classId);
+      const updatedTutories = tutories.filter(
+        (classItem) => classItem.id !== classId,
+      );
       return updatedTutories;
     } catch (error) {
       throw new Error('Failed to delete the class.');

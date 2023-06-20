@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-const BASE_URL = 'https://tutoring-app-backend-group.onrender.com';
+const BASE_URL = 'https://test-reservation-backend.onrender.com';
 
 const initialState = {
   tutories: [],
@@ -15,24 +15,31 @@ const initialState = {
 
 export const fetchTutories = createAsyncThunk(
   'tutories/get',
-  () => new Promise((resolve, reject) => {
-    axios
-      .get(`${BASE_URL}/class_subjects`)
-      .then(({ data }) => {
-        resolve(data);
-      })
-      .catch((error) => {
-        reject(error);
-      });
-  }),
+  () =>
+    new Promise((resolve, reject) => {
+      axios
+        .get(`${BASE_URL}/class_subjects`)
+        .then(({ data }) => {
+          resolve(data);
+        })
+        .catch((error) => {
+          reject(error);
+        });
+    }),
 );
 
 const tutoriesSlice = createSlice({
   name: 'tutories',
   initialState,
   reducers: {
-    updateIsComputerWidth: (state, { payload }) => ({ ...state, isComputerWidth: payload }),
-    updateHasReachedMaxScrolled: (state, { payload }) => ({ ...state, reachedMaxScroll: payload }),
+    updateIsComputerWidth: (state, { payload }) => ({
+      ...state,
+      isComputerWidth: payload,
+    }),
+    updateHasReachedMaxScrolled: (state, { payload }) => ({
+      ...state,
+      reachedMaxScroll: payload,
+    }),
     translateLeft: (state, { payload }) => {
       const translate = state.translated + payload;
       return { ...state, translated: translate };
@@ -45,10 +52,12 @@ const tutoriesSlice = createSlice({
       state.user = payload;
     },
     addTutory: (state, { payload }) => ({
-      ...state, tutories: [...state.tutories, payload],
+      ...state,
+      tutories: [...state.tutories, payload],
     }),
     deleteTutory: (state, { payload }) => ({
-      ...state, tutories: state.tutories.filter((tutory) => tutory.id !== payload),
+      ...state,
+      tutories: state.tutories.filter((tutory) => tutory.id !== payload),
     }),
   },
   extraReducers(builder) {
