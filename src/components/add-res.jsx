@@ -1,6 +1,7 @@
 /* eslint-disable camelcase */
+/* eslint-disable react/jsx-props-no-multi-spaces */
 import React, { useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { createReservation } from '../redux/addResSlice';
@@ -22,6 +23,8 @@ const AddResForm = () => {
   const [classList, setClassList] = useState([]);
   const [city, setCity] = useState('');
   const { data: currentUser } = useCurrentUserQuery();
+
+  const { user } = useSelector((store) => store.tutories);
 
   useEffect(() => {
     dispatch(fetchClasses())
@@ -60,6 +63,11 @@ const AddResForm = () => {
 
   return (
     <section className="center-container relative d-grid justify-content-center">
+      <h2>
+        User ID:
+        {' '}
+        {user?.id}
+      </h2>
       <form
         onSubmit={handleSubmit}
         className="p-3 d-grid justify-items-center border shadow bg-white rounded animate__animated animate__fadeIn"
@@ -125,12 +133,13 @@ const AddResForm = () => {
               type="text"
               className="form-control shadow bg-white rounded"
               id="user_id"
+              placeholder="eg. 1"
               value={user_id}
               onChange={(e) => setUser_id(e.target.value)}
             />
           </label>
         </div>
-        <button type="submit" className="btn-green">
+        <button type="submit" className="btn-green ">
           Add Reservation
         </button>
       </form>
