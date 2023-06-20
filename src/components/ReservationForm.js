@@ -27,7 +27,7 @@ const ReservationForm = () => {
         console.error('Error fetching class data:', error, classes);
       }
     };
-
+    setReservationInfo({ ...reservationInfo, user_id: user.data.name });
     fetchClassesData();
   }, []);
 
@@ -38,6 +38,13 @@ const ReservationForm = () => {
       city: reservationInfo.city,
       user_id: user.data.id,
       classSubject_id: reservationInfo.classSubject_id,
+    });
+    setReservationInfo({
+      city: '',
+      user_id: '',
+      classSubject_id: '',
+      start: '',
+      date: '',
     });
   };
 
@@ -51,7 +58,7 @@ const ReservationForm = () => {
         placeholder="Username"
         className="registration-form-filed m-[8px] h-[35px] w-[325px] rounded-lg"
         name="username"
-        value={user.data.name || ''}
+        value={reservationInfo.user_id || ''}
         onChange={(e) => setReservationInfo({ ...reservationInfo, user_id: e.target.value })}
         required
       />
@@ -77,6 +84,7 @@ const ReservationForm = () => {
         placeholder="City"
         className="registration-form-filed m-[8px] h-[35px] w-[325px] rounded-lg"
         name="email"
+        value={reservationInfo.city}
         onChange={(e) => setReservationInfo({ ...reservationInfo, city: e.target.value })}
         required
       />
@@ -85,6 +93,7 @@ const ReservationForm = () => {
         placeholder="Date"
         className="registration-form-filed m-[8px] h-[35px] w-[325px] rounded-lg"
         name="email"
+        value={reservationInfo.date}
         onChange={(e) => setReservationInfo({ ...reservationInfo, date: e.target.value })}
         required
       />
