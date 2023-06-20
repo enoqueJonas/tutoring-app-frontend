@@ -11,17 +11,16 @@ const initialState = {
 
 export const fetchTutory = createAsyncThunk(
   'tutory/get',
-  (subjectId) =>
-    new Promise((resolve, reject) => {
-      axios
-        .get(`${BASE_URL}/class_subjects/${subjectId}`)
-        .then(({ data }) => {
-          resolve(data);
-        })
-        .catch((error) => {
-          reject(error);
-        });
-    }),
+  (subjectId) => new Promise((resolve, reject) => {
+    axios
+      .get(`${BASE_URL}/class_subjects/${subjectId}`)
+      .then(({ data }) => {
+        resolve(data);
+      })
+      .catch((error) => {
+        reject(error);
+      });
+  }),
 );
 
 const tutorySlice = createSlice({

@@ -12,17 +12,16 @@ const initialState = {
 
 export const fetchTutories = createAsyncThunk(
   'tutories/get',
-  () =>
-    new Promise((resolve, reject) => {
-      axios
-        .get(`${BASE_URL}/class_subjects`)
-        .then(({ data }) => {
-          resolve(data);
-        })
-        .catch((error) => {
-          reject(error);
-        });
-    }),
+  () => new Promise((resolve, reject) => {
+    axios
+      .get(`${BASE_URL}/class_subjects`)
+      .then(({ data }) => {
+        resolve(data);
+      })
+      .catch((error) => {
+        reject(error);
+      });
+  }),
 );
 
 export const deleteTutory = createAsyncThunk(
