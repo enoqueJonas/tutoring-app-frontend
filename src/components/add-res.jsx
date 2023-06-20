@@ -1,5 +1,4 @@
 /* eslint-disable camelcase */
-/* eslint-disable react/jsx-props-no-multi-spaces */
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
@@ -23,8 +22,6 @@ const AddResForm = () => {
   const [classList, setClassList] = useState([]);
   const [city, setCity] = useState('');
 
-  console.log(user_idd);
-
   useEffect(() => {
     dispatch(fetchClasses())
       .then((action) => {
@@ -33,16 +30,6 @@ const AddResForm = () => {
         }
       });
   }, [dispatch]);
-
-  // useEffect(() => {
-  //   dispatch(fetchUserLoggedin())
-  //     .then((action) => {
-  //       console.log(action.payload);
-  //       if (action.payload) {
-  //         setUser_id(action.payload.id);
-  //       }
-  //     });
-  // }, [dispatch]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -126,7 +113,7 @@ const AddResForm = () => {
             />
           </label>
         </div>
-        <div className="mb-3 animate__animated animate__fadeIn">
+        <div className="mb-3 animate__animated animate__fadeIn d-none">
           <label htmlFor="user_id" className="form-label">
             User_id
             <input
