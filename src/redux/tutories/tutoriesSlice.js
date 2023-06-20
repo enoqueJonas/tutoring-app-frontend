@@ -11,6 +11,7 @@ const initialState = {
   isComputerWidth: window.matchMedia('(min-width: 1024px)').matches,
   reachedMaxScroll: false,
   user: { loggedIn: false, data: {} },
+  classId: 0,
 };
 
 export const fetchTutories = createAsyncThunk(
@@ -43,6 +44,9 @@ const tutoriesSlice = createSlice({
     },
     updateUser: (state, { payload }) => {
       state.user = payload;
+    },
+    updateClassId: (state, { payload }) => {
+      state.classId = payload;
     },
     addTutory: (state, { payload }) => ({
       ...state, tutories: [...state.tutories, payload],
@@ -78,6 +82,7 @@ export const {
   updateUser,
   addTutory,
   deleteTutory,
+  updateClassId,
 } = tutoriesSlice.actions;
 
 export default tutoriesSlice.reducer;
