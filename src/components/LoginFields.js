@@ -21,12 +21,10 @@ const LoginFields = () => {
       .then((response) => {
         if (response.message === 'Logged In Successfully') {
           dispatch(updateUser({ loggedIn: true, data: response.user }));
-          console.log(user);
         }
       })
-      .catch((error) => {
-        // handle error
-        console.error(error);
+      .catch(() => {
+
       });
   };
 
