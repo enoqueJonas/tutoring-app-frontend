@@ -23,14 +23,12 @@ const LoginFields = () => {
           dispatch(updateUser({ loggedIn: true, data: response.user }));
         }
       })
-      .catch((error) => {
-        // handle error
-        console.error(error);
+      .catch(() => {
+
       });
   };
 
   useEffect(() => {
-    console.log(user);
     if (user.loggedIn) {
       navigate('/');
     }
