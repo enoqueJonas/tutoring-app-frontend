@@ -53,8 +53,9 @@ const MyReservations = () => {
               <tbody>
                   <tr>
                     <td>
-                      <img style={{ width: '20%' }} src='../../assets/home_page.png' alt="class" />
+                      {/* <img style={{ width: '20%' }} src='../../assets/home_page.png' alt="class" /> */}
                       {/* <img style={{ width: '20%' }} src={process.env.PUBLIC_URL + '/src/assets/murple_logo.png'} alt="class" /> */}
+                      <div className="" style={{ backgroundImage: `url('https://images.theconversation.com/files/191827/original/file-20171025-25516-g7rtyl.jpg?ixlib=rb-1.1.0&rect=0%2C70%2C7875%2C5667&q=45&auto=format&w=926&fit=clip')` }}>Physics</div>
                     </td>
                     <td style={{ width: '45%' }}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc at commodo nisl. Curabitur et sagittis justo. Nulla leo dolor, luctus eget aliquam porttitor</td>
                     <td style={{ width: '18%' }}>12-06-2023</td>
