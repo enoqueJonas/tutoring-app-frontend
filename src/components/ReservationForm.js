@@ -2,11 +2,8 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useSelector } from 'react-redux';
 import { useCreateReservationMutation } from '../api/reservationsApi';
-import { useCurrentUserQuery } from '../api/usersData';
 
 const ReservationForm = () => {
-  const { data: currentUser } = useCurrentUserQuery();
-
   const [createReservation] = useCreateReservationMutation();
 
   const { user } = useSelector((store) => store.tutories);
@@ -34,10 +31,6 @@ const ReservationForm = () => {
     fetchClassesData();
   }, []);
 
-  if (!currentUser || !currentUser.user) {
-    return [];
-  }
-
   const handleSubmit = (e) => {
     e.preventDefault();
     createReservation({
@@ -58,7 +51,7 @@ const ReservationForm = () => {
         placeholder="Username"
         className="registration-form-filed m-[8px] h-[35px] w-[325px] rounded-lg"
         name="username"
-        // value={currentUser.user.name || ''}
+        value={user.data.name || ''}
         onChange={(e) => setReservationInfo({ ...reservationInfo, user_id: e.target.value })}
         required
       />
