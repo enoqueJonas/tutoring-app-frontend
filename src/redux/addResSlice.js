@@ -16,8 +16,14 @@ export const createReservation = createAsyncThunk(
 
 const addResSlice = createSlice({
   name: 'reservation',
-  initialState: {},
-  reducers: {},
+  initialState: {
+    user: null,
+  },
+  reducers: {
+    updateUser: (state, { payload }) => {
+      state.user = payload;
+    },
+  },
   extraReducers: (builder) => {
     builder.addCase(createReservation.fulfilled, (action) => action.payload);
 
