@@ -6,21 +6,27 @@
   padding-top: 2vw;
 }
 
-.reservations-content {
-  padding: 10px;
+.table {
   width: 80vw;
+  border-collapse: collapse;
+  border-color: white;
+  border-style: dashed;
   background-color: #9ac10ed7;
   color: white;
 }
 
-.table {
-  width: 80vw;
-  border-collapse: collapse;
+.table th { 
+  text-align: center;
+  background-color: #9ac10ed7;
+  color: white;
 }
 
 .table td {
-  width: 25%;
   white-space: wrap;
-  border: 1px dashed black;
   padding: 8px;
+  text-align: center;
+  border-color: white;
+  background-color: #9ac10ed7;
+  color: white;
+  border-style: dashed;
 }

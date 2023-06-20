@@ -41,7 +41,7 @@ const MyReservations = () => {
         </div>
 
 
-            <table className='reservations-content table'>
+            <table className='table'>
               <thead>
                 <tr>
                   <th>Subject</th>
@@ -53,7 +53,8 @@ const MyReservations = () => {
               <tbody>
                   <tr>
                     <td>
-                      <img style={{ width: '20%' }} src='https://www.google.com/url?sa=i&url=https%3A%2F%2Ftheconversation.com%2Fphysics-is-taught-badly-because-teachers-struggle-with-basic-concepts-86083&psig=AOvVaw267uVfngP3Yi8gJ1EOJ6DX&ust=1687355842473000&source=images&cd=vfe&ved=0CBEQjRxqFwoTCKDX4b-A0v8CFQAAAAAdAAAAABAE' alt="Item" />
+                      <img style={{ width: '20%' }} src='../../assets/home_page.png' alt="class" />
+                      {/* <img style={{ width: '20%' }} src={process.env.PUBLIC_URL + '/src/assets/murple_logo.png'} alt="class" /> */}
                     </td>
                     <td style={{ width: '45%' }}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc at commodo nisl. Curabitur et sagittis justo. Nulla leo dolor, luctus eget aliquam porttitor</td>
                     <td style={{ width: '18%' }}>12-06-2023</td>
