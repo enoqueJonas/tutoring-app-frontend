@@ -7,12 +7,13 @@ const ReservationForm = () => {
   const [createReservation] = useCreateReservationMutation();
 
   const { user } = useSelector((store) => store.tutories);
+  const { tutory } = useSelector((store) => store.tutory);
 
   const [reservationInfo, setReservationInfo] = useState({
     city: '',
     user_id: '',
     classSubject_id: '',
-    date: Date.now,
+    date: '',
   });
 
   const [classes, setClasses] = useState([]);
@@ -42,7 +43,7 @@ const ReservationForm = () => {
       city: '',
       user_id: '',
       classSubject_id: '',
-      date: Date.now,
+      date: '',
     });
   };
 
@@ -62,6 +63,7 @@ const ReservationForm = () => {
       />
       <select
         className="registration-form-filed m-[8px] h-[35px] w-[325px] rounded-lg"
+        value={tutory.id}
         onChange={(e) => {
           setReservationInfo({ ...reservationInfo, classSubject_id: e.target.value });
         }}

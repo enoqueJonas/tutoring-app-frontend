@@ -26,7 +26,7 @@ export default function Details() {
   }, [dispatch, subjectId, tutories]);
 
   const handleButtonClick = () => {
-
+    naviagte('/reservation');
   };
 
   return (
