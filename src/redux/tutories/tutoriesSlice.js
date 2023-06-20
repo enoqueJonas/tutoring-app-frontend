@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-const BASE_URL = 'https://tutoring-front-end.onrender.com';
+const BASE_URL = 'https://tutoring-app-backend-group.onrender.com';
 
 const initialState = {
   tutories: [],
@@ -15,16 +15,17 @@ const initialState = {
 
 export const fetchTutories = createAsyncThunk(
   'tutories/get',
-  () => new Promise((resolve, reject) => {
-    axios
-      .get(`${BASE_URL}/class_subjects`)
-      .then(({ data }) => {
-        resolve(data);
-      })
-      .catch((error) => {
-        reject(error);
-      });
-  }),
+  () =>
+    new Promise((resolve, reject) => {
+      axios
+        .get(`${BASE_URL}/class_subjects`)
+        .then(({ data }) => {
+          resolve(data);
+        })
+        .catch((error) => {
+          reject(error);
+        });
+    }),
 );
 
 const tutoriesSlice = createSlice({

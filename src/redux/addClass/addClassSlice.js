@@ -2,7 +2,8 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { addTutory } from '../tutories/tutoriesSlice';
 
-const API_URL = 'https://tutoring-front-end.onrender.com/class_subjects';
+const API_URL =
+  'https://tutoring-app-backend-group.onrender.com/class_subjects';
 
 export const createClass = createAsyncThunk(
   'class/createClass',
