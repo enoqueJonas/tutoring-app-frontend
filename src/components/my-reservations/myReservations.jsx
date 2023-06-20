@@ -45,7 +45,7 @@ const MyReservations = () => {
               <thead>
                 <tr>
                   <th>Subject</th>
-                  <th>Description</th>
+                  <th className='desk-only'>Description</th>
                   <th>Date</th>
                   <th>City</th>
                 </tr>
@@ -53,13 +53,13 @@ const MyReservations = () => {
               <tbody>
                   <tr>
                     <td style={{ width: '15%' }}>Physics</td>
-                    <td style={{ width: '45%' }}>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</td>
+                    <td style={{ width: '45%' }} className='desk-only'>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</td>
                     <td style={{ width: '20%' }}>12-06-2023</td>
                     <td style={{ width: '20%' }}>Kano</td>
                   </tr>
                   <tr>
                     <td style={{ width: '15%' }}>Physics</td>
-                    <td style={{ width: '45%' }}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc at commodo nisl. Curabitur et sagittis justo. Nulla leo dolor, luctus eget aliquam porttitor</td>
+                    <td style={{ width: '45%' }} className='desk-only'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc at commodo nisl. Curabitur et sagittis justo. Nulla leo dolor, luctus eget aliquam porttitor</td>
                     <td style={{ width: '20%' }}>12-06-2023</td>
                     <td style={{ width: '20%' }}>Kano</td>
                   </tr>

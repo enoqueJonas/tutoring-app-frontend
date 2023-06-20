@@ -28,3 +28,13 @@
   color: white;
   border-style: dashed;
 }
+
+.desk-only {
+  visibility: visible;
+}
+
+@media screen and (max-width: 767px) {
+  .desk-only {
+    display: none;
+  }
+}
