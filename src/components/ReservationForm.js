@@ -1,22 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { useCreateReservationMutation } from '../api/reservationsApi';
-import { useCurrentUserQuery } from '../api/usersData';
 
 const ReservationForm = () => {
-  const { data: currentUser } = useCurrentUserQuery();
-
   const [createReservation] = useCreateReservationMutation();
 
   const { user } = useSelector((store) => store.tutories);
+  const { tutory } = useSelector((store) => store.tutory);
 
   const [reservationInfo, setReservationInfo] = useState({
     city: '',
     user_id: '',
     classSubject_id: '',
-    start: '',
     date: '',
   });
 
@@ -25,19 +21,15 @@ const ReservationForm = () => {
   useEffect(() => {
     const fetchClassesData = async () => {
       try {
-        const response = await axios.get('http://127.0.0.1:3000/class_subjects');
+        const response = await axios.get('https://tutoring-app-backend-group.onrender.com/class_subjects', { withCredentials: true });
         setClasses(response.data);
       } catch (error) {
-        console.log('Error fetching class data:', error);
+        console.error('Error fetching class data:', error, classes);
       }
     };
-
+    setReservationInfo({ ...reservationInfo, user_id: user.data.name });
     fetchClassesData();
   }, []);
-
-  if (!currentUser || !currentUser.user) {
-    return [];
-  }
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -46,6 +38,12 @@ const ReservationForm = () => {
       city: reservationInfo.city,
       user_id: user.data.id,
       classSubject_id: reservationInfo.classSubject_id,
+    });
+    setReservationInfo({
+      city: '',
+      user_id: '',
+      classSubject_id: '',
+      date: '',
     });
   };
 
@@ -59,12 +57,13 @@ const ReservationForm = () => {
         placeholder="Username"
         className="registration-form-filed m-[8px] h-[35px] w-[325px] rounded-lg"
         name="username"
-        value={currentUser.user.name || ''}
+        value={reservationInfo.user_id || ''}
         onChange={(e) => setReservationInfo({ ...reservationInfo, user_id: e.target.value })}
         required
       />
       <select
         className="registration-form-filed m-[8px] h-[35px] w-[325px] rounded-lg"
+        value={tutory.id}
         onChange={(e) => {
           setReservationInfo({ ...reservationInfo, classSubject_id: e.target.value });
         }}
@@ -85,6 +84,7 @@ const ReservationForm = () => {
         placeholder="City"
         className="registration-form-filed m-[8px] h-[35px] w-[325px] rounded-lg"
         name="email"
+        value={reservationInfo.city}
         onChange={(e) => setReservationInfo({ ...reservationInfo, city: e.target.value })}
         required
       />
@@ -93,17 +93,15 @@ const ReservationForm = () => {
         placeholder="Date"
         className="registration-form-filed m-[8px] h-[35px] w-[325px] rounded-lg"
         name="email"
+        value={reservationInfo.date}
         onChange={(e) => setReservationInfo({ ...reservationInfo, date: e.target.value })}
         required
       />
       <input
         type="submit"
-        value="Register"
+        value="Reserve"
         className="registration-form-filed m-[8px] h-[35px] w-[325px] rounded-lg border border-white-500 text-white hover:bg-white hover:bg-opacity-40"
       />
-      <Link to="/" className="text-white text-sm">
-        Click here to login if you are already registered!
-      </Link>
     </form>
   );
 };

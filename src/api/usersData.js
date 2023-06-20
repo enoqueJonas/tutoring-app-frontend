@@ -2,7 +2,10 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 export const usersApi = createApi({
   reducerPath: 'usersApi',
-  baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:3000/', credentials: 'include' }),
+  baseQuery: fetchBaseQuery({
+    baseUrl: 'https://tutoring-app-backend-group.onrender.com/',
+    credentials: 'include',
+  }),
   endpoints: (builder) => ({
     getUsers: builder.query({
       query: () => '/users',
@@ -32,5 +35,8 @@ export const usersApi = createApi({
 });
 
 export const {
-  useGetUsersQuery, useCreateUserMutation, useLoginUserMutation, useCurrentUserQuery,
+  useGetUsersQuery,
+  useCreateUserMutation,
+  useLoginUserMutation,
+  useCurrentUserQuery,
 } = usersApi;

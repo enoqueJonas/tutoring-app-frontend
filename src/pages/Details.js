@@ -1,7 +1,6 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router';
-import { Link } from 'react-router-dom';
+import { useParams, Link, useNavigate } from 'react-router-dom';
 import findTutoryById from '../helpers/findTutoryById';
 import { fetchTutory, setTutory, setTutoryError } from '../redux/tutories/tutorySlice';
 import '../assets/styles/details.css';
@@ -11,6 +10,7 @@ export default function Details() {
   const dispatch = useDispatch();
   const { tutories } = useSelector((store) => store.tutories);
   const { tutory, tutoryError } = useSelector((store) => store.tutory);
+  const naviagte = useNavigate();
 
   useEffect(() => {
     if (tutories.length === 0) {
@@ -24,6 +24,10 @@ export default function Details() {
     }
     dispatch(setTutoryError(`Tutory with id: ${subjectId} couldn't be found!`));
   }, [dispatch, subjectId, tutories]);
+
+  const handleButtonClick = () => {
+    naviagte('/reservation');
+  };
 
   return (
     <div className="relative center-container">
@@ -75,7 +79,7 @@ export default function Details() {
             </span>
           </Link>
           <div className="grow-1 flex ai-center">
-            <button type="button" className="details__button">
+            <button type="button" className="details__button" onClick={handleButtonClick}>
               <span>
                 <span className="material-symbols-outlined">
                   calendar_month
