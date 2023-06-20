@@ -12,22 +12,16 @@ const fetchClasses = createAsyncThunk(
     .get('https://tutoring-app-backend-group.onrender.com/class_subjects')
     .then((response) => response.data),
 );
-// const fetchUserLoggedin = createAsyncThunk(
-//   'users/fetchUser',
-//   () => axios
-//     .get('http://localhost:3000/logged_in')
-//     .then((response) => response.data),
-// );
 
 const AddResForm = () => {
   const dispatch = useDispatch();
   const [classSubject_id, setClassSubject_id] = useState('');
   const [date, setDate] = useState('');
   const [submitted, setSubmitted] = useState(false);
-  const [user_id, setUser_id] = useState('');
+  const user_idd = useSelector((state) => state.tutories.user.data.id);
+  const [user_id, setUser_id] = useState(user_idd);
   const [classList, setClassList] = useState([]);
   const [city, setCity] = useState('');
-  const user_idd = useSelector((state) => state.tutories.user.data.id);
 
   console.log(user_idd);
 
