@@ -21,7 +21,7 @@ const ReservationForm = () => {
   useEffect(() => {
     const fetchClassesData = async () => {
       try {
-        const response = await axios.get('http://127.0.0.1:3000/class_subjects', { withCredentials: true });
+        const response = await axios.get('https://tutoring-app-backend-group.onrender.com/', { withCredentials: true });
         setClasses(response.data);
       } catch (error) {
         console.error('Error fetching class data:', error, classes);
