@@ -5,7 +5,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { createReservation } from '../redux/addResSlice';
-import { useCurrentUserQuery } from '../api/usersData';
 
 const fetchClasses = createAsyncThunk(
   'classes/fetchClasses',
@@ -13,6 +12,12 @@ const fetchClasses = createAsyncThunk(
     .get('https://tutoring-app-backend-group.onrender.com/class_subjects')
     .then((response) => response.data),
 );
+// const fetchUserLoggedin = createAsyncThunk(
+//   'users/fetchUser',
+//   () => axios
+//     .get('http://localhost:3000/logged_in')
+//     .then((response) => response.data),
+// );
 
 const AddResForm = () => {
   const dispatch = useDispatch();
@@ -22,9 +27,9 @@ const AddResForm = () => {
   const [user_id, setUser_id] = useState('');
   const [classList, setClassList] = useState([]);
   const [city, setCity] = useState('');
-  const { data: currentUser } = useCurrentUserQuery();
+  const user_idd = useSelector((state) => state.tutories.user.data.id);
 
-  const { user } = useSelector((store) => store.tutories);
+  console.log(user_idd);
 
   useEffect(() => {
     dispatch(fetchClasses())
@@ -33,11 +38,17 @@ const AddResForm = () => {
           setClassList(action.payload);
         }
       });
+  }, [dispatch]);
 
-    if (currentUser && currentUser.user) {
-      setUser_id(currentUser.user.id);
-    }
-  }, [dispatch, currentUser]);
+  // useEffect(() => {
+  //   dispatch(fetchUserLoggedin())
+  //     .then((action) => {
+  //       console.log(action.payload);
+  //       if (action.payload) {
+  //         setUser_id(action.payload.id);
+  //       }
+  //     });
+  // }, [dispatch]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -63,11 +74,6 @@ const AddResForm = () => {
 
   return (
     <section className="center-container relative d-grid justify-content-center">
-      <h2>
-        User ID:
-        {' '}
-        {user?.id}
-      </h2>
       <form
         onSubmit={handleSubmit}
         className="p-3 d-grid justify-items-center border shadow bg-white rounded animate__animated animate__fadeIn"
@@ -134,7 +140,7 @@ const AddResForm = () => {
               className="form-control shadow bg-white rounded"
               id="user_id"
               placeholder="eg. 1"
-              value={user_id}
+              value={user_idd}
               onChange={(e) => setUser_id(e.target.value)}
             />
           </label>
