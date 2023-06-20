@@ -41,16 +41,26 @@ const MyReservations = () => {
         </div>
 
 
-            <div className="reservation-item">
-              <div className="tutory-image" style={{ backgroundImage: `url(https://www.google.com/url?sa=i&url=https%3A%2F%2Ftheconversation.com%2Fphysics-is-taught-badly-because-teachers-struggle-with-basic-concepts-86083&psig=AOvVaw267uVfngP3Yi8gJ1EOJ6DX&ust=1687355842473000&source=images&cd=vfe&ved=0CBEQjRxqFwoTCKDX4b-A0v8CFQAAAAAdAAAAABAE)` }}>
-                <div className="reservations-content">
-                  <p className="tutory-subject">Name: Physics</p>
-                  <p className="tutory-subject">Desc: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc at commodo nisl. Curabitur et sagittis justo. Nulla leo dolor, luctus eget aliquam porttitor</p>
-                  <p className="tutory-subject">Date: 12-06-2023</p>
-                  <p className="tutory-subject">City: Kano</p>
-                </div>
-              </div>
-            </div>
+            <table className='reservations-content'>
+              <thead>
+                <tr>
+                  <th>Subject</th>
+                  <th>Description</th>
+                  <th>Date</th>
+                  <th>City</th>
+                </tr>
+              </thead>
+              <tbody>
+                  <tr>
+                    <td>
+                      <img src='https://www.google.com/url?sa=i&url=https%3A%2F%2Ftheconversation.com%2Fphysics-is-taught-badly-because-teachers-struggle-with-basic-concepts-86083&psig=AOvVaw267uVfngP3Yi8gJ1EOJ6DX&ust=1687355842473000&source=images&cd=vfe&ved=0CBEQjRxqFwoTCKDX4b-A0v8CFQAAAAAdAAAAABAE' alt="Item" />
+                    </td>
+                    <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc at commodo nisl. Curabitur et sagittis justo. Nulla leo dolor, luctus eget aliquam porttitor</td>
+                    <td>12-06-2023</td>
+                    <td>Kano</td>
+                  </tr>
+              </tbody>
+            </table>
 
 
       </section>
