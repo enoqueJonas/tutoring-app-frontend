@@ -6,6 +6,7 @@ import tutoriesSlice from './tutories/tutoriesSlice';
 import addClassSlice from './addClass/addClassSlice';
 import tutorySlice from './tutories/tutorySlice';
 import deleteClassSlice from './deleteClass/deleteClassSlice';
+import myReservationsSlice from './myReservations/myReservationsSlice';
 
 const store = configureStore({
   reducer: {
@@ -15,6 +16,7 @@ const store = configureStore({
     tutory: tutorySlice,
     addClass: addClassSlice,
     deleteClass: deleteClassSlice,
+    myReservations: myReservationsSlice,
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware()
     .concat(usersApi.middleware)

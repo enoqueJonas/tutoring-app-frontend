@@ -2,15 +2,21 @@
   box-sizing: border-box;
 }
 
+.rel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  padding-top: 2vw;
+}
+
 .tutory-container {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
   gap: 10px;
-  margin: 2vw 15vw;
-  margin-top: -10vw;
+  margin-top: 2vw;
+  padding-left: 2vw;
 }
 
 .tutory-image {

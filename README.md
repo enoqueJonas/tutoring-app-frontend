@@ -1,52 +1,14 @@
 <a name="readme-top"></a>
 
-<!--
-!!! IMPORTANT !!!
-This README is an example of how you could professionally present your codebase.
-Writing documentation is a crucial part of your work as a professional software developer and cannot be ignored.
-
-You should modify this file to match your project and remove sections that don't apply.
-
-REQUIRED SECTIONS:
-- Table of Contents
-- About the Project
-  - Built With
-  - Live Demo
-- Getting Started
-- Authors
-- Future Features
-- Contributing
-- Show your support
-- Acknowledgements
-- License
-
-OPTIONAL SECTIONS:
-- FAQ
-
-After you're finished please remove all the comments and instructions!
-
-For more information on the importance of a professional README for your repositories: https://github.com/microverseinc/curriculum-transversal-skills/blob/main/documentation/articles/readme_best_practices.md
--->
-
-<div align="center">
-  <!-- You are encouraged to replace this logo with your own! Otherwise you can also remove it. -->
-  <img src="./repo_images/murple_logo.png" alt="logo" width="140"  height="auto" />
-  <br/>
-
-  <h3><b>Microverse README Template</b></h3>
-
-</div>
-
-<!-- TABLE OF CONTENTS -->
-
 # 📗 Table of Contents
 
 - [� Table of Contents](#-table-of-contents)
-- [📖 \[your_project_name\] ](#-your_project_name-)
+- [📖 Tutoring-App ](#-Tutoring-App)
   - [🛠 Built With ](#-built-with-)
     - [Tech Stack ](#tech-stack-)
     - [Key Features ](#key-features-)
   - [🚀 Live Demo ](#-live-demo-)
+  - [💻 Project Presentation ](#-project-presentation-)
   - [💻 Getting Started ](#-getting-started-)
     - [Prerequisites](#prerequisites)
     - [Setup](#setup)
@@ -59,16 +21,11 @@ For more information on the importance of a professional README for your reposit
   - [🤝 Contributing ](#-contributing-)
   - [⭐️ Show your support ](#️-show-your-support-)
   - [🙏 Acknowledgments ](#-acknowledgments-)
-  - [❓ FAQ (OPTIONAL) ](#-faq-optional-)
   - [📝 License ](#-license-)
 
-<!-- PROJECT DESCRIPTION -->
+# 📖 Tutoring App <a name="about-project"></a>
 
-# 📖 [your_project_name] <a name="about-project"></a>
-
-> Describe your project in 1 or 2 sentences.
-
-**[your_project__name]** is a...
+**Tutoring App** is a single page app that enables users to effortlessly manage classes, including adding, deleting, and viewing class details. It also provides reservation functionality, allowing users to make reservations and view their reservation details
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -83,47 +40,25 @@ For more information on the importance of a professional README for your reposit
   </ul>
 </details>
 
-<details>
-  <summary>Server</summary>
-  <ul>
-    <li><a href="https://expressjs.com/">Express.js</a></li>
-  </ul>
-</details>
-
-<details>
-<summary>Database</summary>
-  <ul>
-    <li><a href="https://www.postgresql.org/">PostgreSQL</a></li>
-  </ul>
-</details>
-
-<!-- Features -->
-
 ### Key Features <a name="key-features"></a>
 
-> Describe between 1-3 key features of the application.
-
-- **[key_feature_1]**
-- **[key_feature_2]**
-- **[key_feature_3]**
+- **Built using React/Redux**
+- **Backend API was consumed**
+- The link to the Backend is tutoring-app-backend(https://github.com/enoqueJonas/tutoring-app-backend)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- LIVE DEMO -->
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-> Add a link to your deployed project.
+- [Live Demo Link](https://tutoring-front-end.onrender.com)
 
-- [Live Demo Link](https://google.com)
+## 💻 Project Presentation <a name="project-presentation"></a>
+
+- [Presentation Link](https://google.com)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- GETTING STARTED -->
-
 ## 💻 Getting Started <a name="getting-started"></a>
-
-> Describe how a new developer could make use of your project.
 
 To get a local copy up and running, follow these steps.
 
@@ -131,162 +66,91 @@ To get a local copy up and running, follow these steps.
 
 In order to run this project you need:
 
-<!--
-Example command:
-
-```sh
- gem install rails
-```
- -->
+- to install VS Code (or any other editor of your choice)
 
 ### Setup
 
 Clone this repository to your desired folder:
 
-<!--
-Example commands:
-
-```sh
-  cd my-folder
-  git clone git@github.com:myaccount/my-project.git
-```
---->
+run: `git clone https://github.com/enoqueJonas/tutoring-app-frontend`
+run: `cd tutoring-app-frontend`
+run: `code .` (assuming you are using VS Code)
 
 ### Install
 
 Install this project with:
 
-<!--
-Example command:
-
-```sh
-  cd my-project
-  gem install
-```
---->
+run: `npm install`
 
 ### Usage
 
 To run the project, execute the following command:
 
-<!--
-Example command:
-
-```sh
-  rails server
-```
---->
-
-### Run tests
-
-To run tests, run the following command:
-
-<!--
-Example command:
-
-```sh
-  bin/rails test test/models/article_test.rb
-```
---->
-
-### Deployment
-
-You can deploy this project using:
-
-<!--
-Example:
-
-```sh
-
-```
- -->
+run: `npm start`
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- AUTHORS -->
 
 ## 👥 Authors <a name="authors"></a>
 
-> Mention all of the collaborators of this project.
+👤 **Enoque Jonas**
 
-👤 **Author1**
+- GitHub: [@enoqueJonas](https://github.com/enoqueJonas)
+- Twitter: [@enoque_jonas](https://twitter.com/_enoqueJonas)
+- LinkedIn: [@Enoque Macanda](https://www.linkedin.com/mwlite/in/enoque-macanda)
 
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
+👤 **ANAS ALSAMMARRAIE**
 
-👤 **Author2**
+- GitHub: [@anas599](https://github.com/anas599)
+- Twitter: [@anas599](https://twitter.com/anas599)
+- LinkedIn: [anas1993](https://linkedin.com/in/anas1993)
 
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
+👤 **Jorge Abrahan**
+
+- GitHub: [@jorgeabrahan](https://github.com/jorgeabrahan)
+- LinkedIn: [@jorgeabrahan](https://www.linkedin.com/in/jorge-siguenza/?locale=en_US)
+
+👤 **Uthman Igein Bello-Imoukhuede**
+
+- GitHub: [Uthmanbello](https://github.com/Uthmanbello)
+- Twitter: [@UthmanDeRoyale](https://twitter.com/UthmanDeRoyale)
+- LinkedIn: [Uthman Igein Bello-Imoukhuede](https://www.linkedin.com/in/uthmanbelloimoukhuede)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- FUTURE FEATURES -->
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-> Describe 1 - 3 features you will add to the project.
-
-- [ ] **[new_feature_1]**
-- [ ] **[new_feature_2]**
-- [ ] **[new_feature_3]**
+- **Enhanced UI/UX**
+- **More pages to include communication with tutors**
+- **Dark mode option**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- CONTRIBUTING -->
 
 ## 🤝 Contributing <a name="contributing"></a>
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](../../issues/).
+Feel free to check the [issues page](https://github.com/enoqueJonas/tutoring-app-frontend/issues/).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- SUPPORT -->
 
 ## ⭐️ Show your support <a name="support"></a>
 
-> Write a message to encourage readers to support your project
-
-If you like this project...
+If you like this project please, give it a star to show support
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- ACKNOWLEDGEMENTS -->
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-> Give credit to everyone who inspired your codebase.
-
-I would like to thank...
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- FAQ (optional) -->
-
-## ❓ FAQ (OPTIONAL) <a name="faq"></a>
-
-> Add at least 2 questions new developers would ask when they decide to use your project.
-
-- **[Question_1]**
-
-  - [Answer_1]
-
-- **[Question_2]**
-
-  - [Answer_2]
+We would like to thank all our team members, colleagues and mentors at Microverse.
+We would also like to thank <a href="https://www.behance.net/muratk">Murat Korkmaz</a>
+of Behance for this wonderful app design <a href="https://www.behance.net/gallery/26425031/Vespa-Responsive-Redesign/modules/173005583">Book a vespa test-ride</a>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- LICENSE -->
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 📝 License <a name="license"></a>
 
-This project is [MIT](./LICENSE) licensed.
-
-_NOTE: we recommend using the [MIT license](https://choosealicense.com/licenses/mit/) - you can set it up quickly by [using templates available on GitHub](https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/adding-a-license-to-a-repository). You can also use [any other license](https://choosealicense.com/licenses/) if you wish._
+This project is [MIT](https://github.com/enoqueJonas/tutoring-app-frontend/blob/dev/LICENSE) licensed.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
