@@ -43,7 +43,7 @@ const myReservationsSlice = createSlice({
         ...state,
         status: 'rejected',
         error: error.message,
-      }))
+      }));
   },
 });
 

@@ -14,7 +14,7 @@ export default function Home() {
   const dispatch = useDispatch();
 
   const mediaQuery = window.matchMedia('(min-width: 1024px)');
-  const { tutories, tutoriesStatus, user } = useSelector((store) => store.tutories);
+  const { tutories, tutoriesStatus } = useSelector((store) => store.tutories);
 
   const [translated, setTranslated] = useState(0);
   const [isComputerWidth, setIsComputerWidth] = useState(mediaQuery.matches);
