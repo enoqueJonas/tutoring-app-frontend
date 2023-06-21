@@ -6,8 +6,8 @@ import './myReservations.css';
 
 const MyReservations = () => {
   const dispatch = useDispatch();
-  // const reservations = useSelector((state) => state.reservations);
   const reservations = useSelector((state) => state.myReservations.reservations);
+  // const reservations = useSelector((state) => console.log(state));
 
   useEffect(() => {
     dispatch(fetchReservations());
@@ -44,8 +44,8 @@ const MyReservations = () => {
                     <tr>
                       <td style={{ width: '15%' }}>{classItem.subject}</td>
                       <td style={{ width: '45%' }} className='desk-only'>{classItem.description}</td>
-                      <td style={{ width: '20%' }}>12-06-2023</td>
-                      <td style={{ width: '20%' }}>Kano</td>
+                      <td style={{ width: '20%' }}>{classItem.id}</td>
+                      <td style={{ width: '20%' }}>{classItem.id}</td>
                     </tr>
                 </tbody>
             ))}  

@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-const BASE_URL = 'http://127.0.0.1:3000';
+const BASE_URL = 'http://127.0.0.1:3000/';
 
 const initialState = {
   reservations: [],
@@ -50,7 +50,7 @@ const myReservationsSlice = createSlice({
       }))
       .addCase(fetchReservations.fulfilled, (state, { payload }) => ({
         ...state,
-        tutories: payload,
+        reservations: payload,
         status: 'fulfilled',
       }))
       .addCase(fetchReservations.rejected, (state, { error }) => ({
