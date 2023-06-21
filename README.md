@@ -72,8 +72,8 @@ In order to run this project you need:
 
 Clone this repository to your desired folder:
 
-run: `git clone https://github.com/enoqueJonas/tutoring-app-frontend`
-run: `cd tutoring-app-frontend`
+run: `git clone https://github.com/enoqueJonas/tutoring-app-frontend` <br>
+run: `cd tutoring-app-frontend` <br>
 run: `code .` (assuming you are using VS Code)
 
 ### Install
