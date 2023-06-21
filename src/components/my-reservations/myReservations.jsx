@@ -26,46 +26,30 @@ const MyReservations = () => {
         </div>
         <div className="separator mb-2" />
         
-        <div className='tutory-container'>
-          {reservations.map((classItem) => (
-            <div key={classItem.id} className="tutory-item">
-                <div className="tutory-content">
-                  <span className="tutory-subject">{classItem.date}</span>
-                  <span className="tutory-subject">{classItem.city}</span>
-                  {/* <button className="delete-button" onClick={() => handleDeleteClass(classItem.id)}> */}
-                    {/* <DeleteIcon /> */}
-                  {/* </button> */}
-                </div>
+        <div>
+          <table className='table'>
+            <thead>
+              <tr>
+                <th>Subject</th>
+                <th className='desk-only'>Description</th>
+                <th>Date</th>
+                <th>City</th>
+              </tr>
+            </thead>
+            {reservations.map((classItem) => (
+              <div key={classItem.id}>
+                <tbody>
+                    <tr>
+                      <td style={{ width: '15%' }}>Physics</td>
+                      <td style={{ width: '45%' }} className='desk-only'>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</td>
+                      <td style={{ width: '20%' }}>12-06-2023</td>
+                      <td style={{ width: '20%' }}>Kano</td>
+                    </tr>
+                </tbody>
               </div>
-          ))}
+            ))}  
+          </table>    
         </div>
-
-
-            <table className='table'>
-              <thead>
-                <tr>
-                  <th>Subject</th>
-                  <th className='desk-only'>Description</th>
-                  <th>Date</th>
-                  <th>City</th>
-                </tr>
-              </thead>
-              <tbody>
-                  <tr>
-                    <td style={{ width: '15%' }}>Physics</td>
-                    <td style={{ width: '45%' }} className='desk-only'>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</td>
-                    <td style={{ width: '20%' }}>12-06-2023</td>
-                    <td style={{ width: '20%' }}>Kano</td>
-                  </tr>
-                  <tr>
-                    <td style={{ width: '15%' }}>Physics</td>
-                    <td style={{ width: '45%' }} className='desk-only'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc at commodo nisl. Curabitur et sagittis justo. Nulla leo dolor, luctus eget aliquam porttitor</td>
-                    <td style={{ width: '20%' }}>12-06-2023</td>
-                    <td style={{ width: '20%' }}>Kano</td>
-                  </tr>
-              </tbody>
-            </table>
-
 
       </section>
     </div>
