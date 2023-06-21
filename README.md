@@ -3,7 +3,7 @@
 # 📗 Table of Contents
 
 - [� Table of Contents](#-table-of-contents)
-- [📖 \[your_project_name\] ](#-your_project_name-)
+- [📖 Tutoring-App ](#-Tutoring-App)
   - [🛠 Built With ](#-built-with-)
     - [Tech Stack ](#tech-stack-)
     - [Key Features ](#key-features-)
@@ -23,10 +23,9 @@
   - [🙏 Acknowledgments ](#-acknowledgments-)
   - [📝 License ](#-license-)
 
+# 📖 Tutoring App <a name="about-project"></a>
 
-# 📖 [Tutoring App] <a name="about-project"></a>
-
-**[Tutoring App]** is a single page app that enables users to effortlessly manage classes, including adding, deleting, and viewing class details. It also provides reservation functionality, allowing users to make reservations and view their reservation details
+**Tutoring App** is a single page app that enables users to effortlessly manage classes, including adding, deleting, and viewing class details. It also provides reservation functionality, allowing users to make reservations and view their reservation details
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -43,15 +42,15 @@
 
 ### Key Features <a name="key-features"></a>
 
-- **[Built using React/Redux]**
-- **[Backend API was consumed]**
-- The link to the Backend is [tutoring-app-backend](https://github.com/enoqueJonas/tutoring-app-backend)
+- **Built using React/Redux**
+- **Backend API was consumed**
+- The link to the Backend is tutoring-app-backend(https://github.com/enoqueJonas/tutoring-app-backend)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- [Live Demo Link](https://google.com)
+- [Live Demo Link](https://tutoring-front-end.onrender.com)
 
 ## 💻 Project Presentation <a name="project-presentation"></a>
 
@@ -66,6 +65,7 @@ To get a local copy up and running, follow these steps.
 ### Prerequisites
 
 In order to run this project you need:
+
 - to install VS Code (or any other editor of your choice)
 
 ### Setup
@@ -119,9 +119,9 @@ run: `npm start`
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- **[Enhanced UI/UX]**
-- **[More pages to include communication with tutors]**
-- **[Dark mode option]**
+- **Enhanced UI/UX**
+- **More pages to include communication with tutors**
+- **Dark mode option**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -141,7 +141,9 @@ If you like this project please, give it a star to show support
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-We would like to thank all our team members, colleagues and mentors at Microverse. We would also like to thank Murat Korkmaz of Behance for this wonderful app design
+We would like to thank all our team members, colleagues and mentors at Microverse.
+We would also like to thank <a href="https://www.behance.net/muratk">Murat Korkmaz</a>
+of Behance for this wonderful app design <a href="https://www.behance.net/gallery/26425031/Vespa-Responsive-Redesign/modules/173005583">Book a vespa test-ride</a>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
