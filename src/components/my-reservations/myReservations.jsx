@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchReservations} from '../../redux/myReservations/myReservationsSlice';
+import { fetchTutories } from '../../redux/deleteClass/deleteClassSlice';
 import './myReservations.css';
-// import { ReactComponent as DeleteIcon } from '../../assets/del.svg';
 
 const MyReservations = () => {
   const dispatch = useDispatch();
@@ -13,9 +13,12 @@ const MyReservations = () => {
     dispatch(fetchReservations());
   }, [dispatch]);
 
-  // const handleDeleteClass = (classId) => {
-  //   dispatch(deleteTutory(classId));
-  // };
+  
+  const tutories = useSelector((state) => state.deleteClass.tutories);
+
+  useEffect(() => {
+    dispatch(fetchTutories());
+  }, [dispatch]);
 
   return (
     <div>
@@ -36,19 +39,26 @@ const MyReservations = () => {
                 <th>City</th>
               </tr>
             </thead>
-            {reservations.map((classItem) => (
-              <div key={classItem.id}>
-                <tbody>
+            {tutories.map((classItem) => (
+                <tbody key={classItem.id}>
                     <tr>
-                      <td style={{ width: '15%' }}>Physics</td>
-                      <td style={{ width: '45%' }} className='desk-only'>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</td>
+                      <td style={{ width: '15%' }}>{classItem.subject}</td>
+                      <td style={{ width: '45%' }} className='desk-only'>{classItem.description}</td>
                       <td style={{ width: '20%' }}>12-06-2023</td>
                       <td style={{ width: '20%' }}>Kano</td>
                     </tr>
                 </tbody>
-              </div>
             ))}  
           </table>    
+        </div>
+
+        <div className='tutory-container'>
+          {reservations.map((classItem) => (
+            <div key={classItem.id} className="tutory-item">
+              <p>{classItem.date}</p>
+              <p>{classItem.city}</p>
+            </div>
+          ))}
         </div>
 
       </section>
