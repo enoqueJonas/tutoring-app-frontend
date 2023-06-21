@@ -24,14 +24,14 @@ const DeleteClass = () => {
           <p className="subtitle">Here are all the classes available</p>
         </div>
         <div className="separator mb-2" />
-        
-        <div className='tutory-container'>
+
+        <div className="tutory-container">
           {tutories.map((classItem) => (
             <div key={classItem.id} className="tutory-item">
               <div className="tutory-image" style={{ backgroundImage: `url(${classItem.image})` }}>
                 <div className="tutory-content">
                   <span className="tutory-subject">{classItem.subject}</span>
-                  <button className="delete-button" onClick={() => handleDeleteClass(classItem.id)}>
+                  <button type="button" className="delete-button" onClick={() => handleDeleteClass(classItem.id)}>
                     <DeleteIcon />
                   </button>
                 </div>
