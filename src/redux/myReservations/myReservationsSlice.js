@@ -24,20 +24,6 @@ export const fetchReservations = createAsyncThunk(
   }),
 );
 
-// export const deleteTutory = createAsyncThunk(
-//   'tutories/delete',
-//   async (classId, { getState }) => {
-//     try {
-//       await axios.delete(`${BASE_URL}/class_subjects/${classId}`);
-//       const { tutories } = getState().deleteClass;
-//       const updatedTutories = tutories.filter((classItem) => classItem.id !== classId);
-//       return updatedTutories;
-//     } catch (error) {
-//       throw new Error('Failed to delete the class.');
-//     }
-//   },
-// );
-
 const myReservationsSlice = createSlice({
   name: 'my-reservations',
   initialState,
@@ -58,20 +44,6 @@ const myReservationsSlice = createSlice({
         status: 'rejected',
         error: error.message,
       }))
-    //   .addCase(deleteTutory.pending, (state) => ({
-    //     ...state,
-    //     status: 'loading',
-    //   }))
-    //   .addCase(deleteTutory.fulfilled, (state, { payload }) => ({
-    //     ...state,
-    //     tutories: payload,
-    //     status: 'fulfilled',
-    //   }))
-    //   .addCase(deleteTutory.rejected, (state, { error }) => ({
-    //     ...state,
-    //     status: 'rejected',
-    //     error: error.message,
-    //   }));
   },
 });
 
