@@ -14,16 +14,18 @@ const MyReservations = () => {
     dispatch(fetchReservations());
   }, [dispatch]);
 
-  const combinedData = tutories.map((tutory) => {
-    const reservation = reservations.find((reservation) => reservation.classSubject_id === tutory.id);
-    return {
-      id: tutory.id,
-      subject: tutory.subject,
-      description: tutory.description,
-      date: reservation ? reservation.date : '',
-      city: reservation ? reservation.city : '',
-    };
-  });
+  const combinedData = tutories
+    .filter((tutory) => reservations.some((reservation) => reservation.classSubject_id === tutory.id))
+    .map((tutory) => {
+      const reservation = reservations.find((reservation) => reservation.classSubject_id === tutory.id);
+      return {
+        id: tutory.id,
+        subject: tutory.subject,
+        description: tutory.description,
+        date: reservation ? reservation.date : '',
+        city: reservation ? reservation.city : '',
+      };
+    });
 
   return (
     <div>
