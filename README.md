@@ -8,7 +8,6 @@
     - [Tech Stack ](#tech-stack-)
     - [Key Features ](#key-features-)
   - [🚀 Live Demo ](#-live-demo-)
-  - [💻 Project Presentation ](#-project-presentation-)
   - [💻 Getting Started ](#-getting-started-)
     - [Prerequisites](#prerequisites)
     - [Setup](#setup)
@@ -51,10 +50,6 @@
 ## 🚀 Live Demo <a name="live-demo"></a>
 
 - [Live Demo Link](https://tutoring-front-end.onrender.com)
-
-## 💻 Project Presentation <a name="project-presentation"></a>
-
-- [Presentation Link](https://google.com)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
