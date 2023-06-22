@@ -1,8 +1,7 @@
 import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
-import { ReactComponent as FacebookIcon } from '../../assets/icons/facebook.svg';
-import { ReactComponent as LinkedinIcon } from '../../assets/icons/linkedin.svg';
-import { ReactComponent as TwitterIcon } from '../../assets/icons/twitter.svg';
+import TutoryIcon from './TutoryIcon';
+import socialMedias from './socialMedias';
 
 export default function Tutory({
   image, subject, description, id,
@@ -28,27 +27,16 @@ export default function Tutory({
       <div className="separator" />
       <p>{description}</p>
       <ul className="social-media">
-        <li>
-          <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer">
-            <LinkedinIcon />
-          </a>
-        </li>
-        <li>
-          <a href="https://twitter.com/" target="_blank" rel="noreferrer">
-            <TwitterIcon />
-          </a>
-        </li>
-        <li>
-          <a href="https://www.facebook.com/" target="_blank" rel="noreferrer">
-            <FacebookIcon />
-          </a>
-        </li>
+        {socialMedias.map(({ url, icon, id }) => (
+          <TutoryIcon key={id} socialMedia={url}>
+            {icon}
+          </TutoryIcon>
+        ))}
       </ul>
     </div>
   );
 }
 
-/* Prop types validation */
 Tutory.propTypes = {
   image: PropTypes.string.isRequired,
   subject: PropTypes.string.isRequired,
