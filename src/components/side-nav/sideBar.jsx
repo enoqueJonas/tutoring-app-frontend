@@ -31,7 +31,7 @@ function SideBar() {
             <Link className={`nav-link-item ${activeItem === 'addClass' ? 'active' : ''}`} to="addClass" onClick={() => setActiveItem('addClass')}>Add Class</Link>
             <Link className={`nav-link-item ${activeItem === 'deleteClass' ? 'active' : ''}`} to="deleteClass" onClick={() => setActiveItem('deleteClass')}>Delete Class</Link>
             {loggedIn && (
-              <button className="nav-link-item logout-button" onClick={handleLogout}>
+              <button type="button" className="nav-link-item logout-button" onClick={handleLogout}>
                 Logout
               </button>
             )}
