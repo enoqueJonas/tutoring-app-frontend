@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import './addClass.css';
 import { createClass } from '../../redux/addClass/addClassSlice';
+import FormField from './FormField';
 
 const ClassForm = () => {
   const dispatch = useDispatch();
@@ -21,6 +22,7 @@ const ClassForm = () => {
       setError(true);
       return;
     }
+
     const classSubject = {
       subject,
       description,
@@ -29,7 +31,9 @@ const ClassForm = () => {
       image,
       tutorName,
     };
+
     dispatch(createClass(classSubject));
+
     setSubject('');
     setDescription('');
     setPrice('');
@@ -40,94 +44,65 @@ const ClassForm = () => {
   };
 
   return (
-    <section className="center-container relative d-grid justify-content-center   ">
-      <form onSubmit={handleSubmit} className="p-3  d-grid justify-items-center border shadow  bg-white rounded animate__animated animate__fadeIn">
+    <section className="center-container relative d-grid justify-content-center">
+      <form onSubmit={handleSubmit} className="p-3 d-grid justify-items-center border shadow bg-white rounded animate__animated animate__fadeIn">
         {submitted ? (
           <div className="alert alert-success animate__animated animate__fadeIn">Class added successfully!</div>
         ) : null}
         {error ? (
           <div className="alert alert-danger animate__animated animate__fadeIn">All fields are required!</div>
         ) : null}
-        <h1 className="text-center h1 border-bottom ">Add Class</h1>
-        <div className="mb-3 animate__animated animate__fadeIn">
-          <label htmlFor="tutor_name" className="form-label ">
-            Tutor Name
-            <input
-              type="text"
-              className="form-control shadow  bg-white rounded"
-              id="tutor_name"
-              placeholder="eg. John Smith"
-              value={tutorName}
-              onChange={(e) => setTutorName(e.target.value)}
-            />
-          </label>
-        </div>
-        <div className="mb-3 animate__animated animate__fadeIn">
-          <label htmlFor="subject" className="form-label ">
-            Subject
-            <input
-              type="text"
-              className="form-control shadow  bg-white rounded"
-              id="subject"
-              placeholder="eg. Mathmatical Analysis"
-              value={subject}
-              onChange={(e) => setSubject(e.target.value)}
-            />
-          </label>
-        </div>
-        <div className="mb-3 animate__animated animate__fadeIn">
-          <label htmlFor="description" className="form-label ">
-            Description
-            <input
-              type="text"
-              className="form-control shadow  bg-white rounded"
-              id="description"
-              placeholder="Description"
-              value={description}
-              onChange={(e) => setDescription(e.target.value)}
-            />
-          </label>
-        </div>
-        <div className="mb-3 animate__animated animate__fadeIn">
-          <label htmlFor="price" className="form-label ">
-            Price
-            <input
-              type="number"
-              className="form-control shadow  bg-white rounded"
-              id="price"
-              placeholder="eg. $250"
-              value={price}
-              onChange={(e) => setPrice(e.target.value)}
-            />
-          </label>
-        </div>
-        <div className="mb-3 animate__animated animate__fadeIn">
-          <label htmlFor="duration" className="form-label ">
-            Duration
-            <input
-              type="number"
-              className="form-control shadow  bg-white rounded"
-              id="duration"
-              placeholder="eg. 50 minutes"
-              value={duration}
-              onChange={(e) => setDuration(e.target.value)}
-            />
-          </label>
-        </div>
-        <div className="mb-3 animate__animated animate__fadeIn">
-          <label htmlFor="image" className="form-label ">
-            image
-            <input
-              type="url"
-              className="form-control shadow  bg-white rounded"
-              id="image"
-              placeholder="eg. https://www.example.com/image.jpg"
-              value={image}
-              onChange={(e) => setImage(e.target.value)}
-            />
-          </label>
-        </div>
-        <button type="submit" className="btn-green ">
+        <h1 className="text-center h1 border-bottom">Add Class</h1>
+
+        <FormField
+          id="tutor_name"
+          type="text"
+          placeholder="eg. John Smith"
+          value={tutorName}
+          onChange={(e) => setTutorName(e.target.value)}
+        />
+
+        <FormField
+          id="subject"
+          type="text"
+          placeholder="eg. Mathematical Analysis"
+          value={subject}
+          onChange={(e) => setSubject(e.target.value)}
+        />
+
+        <FormField
+          id="description"
+          type="text"
+          placeholder="Description"
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
+        />
+
+        <FormField
+          id="price"
+          type="number"
+          placeholder="eg. $250"
+          value={price}
+          onChange={(e) => setPrice(e.target.value)}
+        />
+
+        <FormField
+          id="duration"
+          type="number"
+          placeholder="eg. 50 minutes"
+          value={duration}
+          onChange={(e) => setDuration(e.target.value)}
+        />
+
+        <FormField
+          id="image"
+          type="url"
+          placeholder="eg. https://www.example.com/image.jpg"
+          value={image}
+          onChange={(e) => setImage(e.target.value)}
+        />
+
+        <button type="submit" className="btn-green">
           Add Class
         </button>
       </form>
