@@ -50,6 +50,9 @@ const tutoriesSlice = createSlice({
     deleteTutory: (state, { payload }) => ({
       ...state, tutories: state.tutories.filter((tutory) => tutory.id !== payload),
     }),
+    logoutUser: (state) => {
+      state.user = { loggedIn: false, data: {} };
+    },
   },
   extraReducers(builder) {
     builder
@@ -81,4 +84,5 @@ export const {
   updateClassId,
 } = tutoriesSlice.actions;
 
+export const { logoutUser } = tutoriesSlice.actions;
 export default tutoriesSlice.reducer;

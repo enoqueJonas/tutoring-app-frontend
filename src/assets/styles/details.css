@@ -9,12 +9,22 @@
   height: 70vh;
 }
 
-.details img {
+.details figure {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: 24vh;
   border-radius: 10px;
   box-shadow: 0 0 10px 0 rgba(40, 40, 40, 0.272);
+  overflow: hidden;
+  position: relative;
+}
+
+.details img {
+  width: 100%;
+  position: absolute;
+  object-fit: cover;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .details__content {
@@ -69,6 +79,10 @@ button.details__button span:first-child {
 @media (min-width: 1024px) {
   .details {
     grid-template-columns: 70% 30%;
+  }
+
+  .details figure {
+    height: 100%;
   }
 }
 

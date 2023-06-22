@@ -24,7 +24,7 @@ export const fetchTutories = createAsyncThunk(
   }),
 );
 
-export const deleteTutory = createAsyncThunk(
+export const deleteTutoryExt = createAsyncThunk(
   'tutories/delete',
   async (classId, { getState }) => {
     try {
@@ -58,16 +58,16 @@ const deleteClassSlice = createSlice({
         status: 'rejected',
         error: error.message,
       }))
-      .addCase(deleteTutory.pending, (state) => ({
+      .addCase(deleteTutoryExt.pending, (state) => ({
         ...state,
         status: 'loading',
       }))
-      .addCase(deleteTutory.fulfilled, (state, { payload }) => ({
+      .addCase(deleteTutoryExt.fulfilled, (state, { payload }) => ({
         ...state,
         tutories: payload,
         status: 'fulfilled',
       }))
-      .addCase(deleteTutory.rejected, (state, { error }) => ({
+      .addCase(deleteTutoryExt.rejected, (state, { error }) => ({
         ...state,
         status: 'rejected',
         error: error.message,
