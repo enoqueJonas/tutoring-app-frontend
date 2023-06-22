@@ -18,6 +18,7 @@ describe('ClassForm', () => {
     const subjectInput = screen.getByLabelText('Subject');
     const durationInput = screen.getByLabelText('Duration');
     const imageInput = screen.getByLabelText('image');
+
     const submitButton = screen.getAllByText('Add Class');
 
     expect(tutorNameInput).toBeInTheDocument();
