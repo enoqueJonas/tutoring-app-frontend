@@ -49,6 +49,10 @@
   flex-direction: column;
 }
 
+.logout-button {
+  margin-right: 6vw;
+}
+
 @media screen and (max-width: 759px) {
   .root {
     display: flex;
