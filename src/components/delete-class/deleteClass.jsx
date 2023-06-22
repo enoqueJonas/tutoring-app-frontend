@@ -18,7 +18,6 @@ const DeleteClass = () => {
     dispatch(deleteTutory(classId));
     dispatch(deleteTutoryExt(classId));
   };
-  
 
   return (
     <div>
