@@ -1,0 +1,39 @@
+.rel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  padding-top: 2vw;
+}
+
+.table {
+  width: 80vw;
+  border-collapse: collapse;
+  border-color: white;
+  border-style: dashed;
+}
+
+.table th {
+  text-align: center;
+  background-color: #9ac10e;
+  color: white;
+}
+
+.table td {
+  padding: 8px;
+  text-align: center;
+  border-color: white;
+  background-color: #9ac10e;
+  color: white;
+  border-style: dashed;
+}
+
+.desk-only {
+  visibility: visible;
+}
+
+@media screen and (max-width: 767px) {
+  .desk-only {
+    display: none;
+  }
+}
