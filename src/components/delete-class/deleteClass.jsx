@@ -1,12 +1,14 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchTutories, deleteTutory } from '../../redux/deleteClass/deleteClassSlice';
+import { deleteTutoryExt } from '../../redux/deleteClass/deleteClassSlice';
+import { fetchTutories, deleteTutory } from '../../redux/tutories/tutoriesSlice';
+
 import './deleteClass.css';
 import { ReactComponent as DeleteIcon } from '../../assets/del.svg';
 
 const DeleteClass = () => {
   const dispatch = useDispatch();
-  const tutories = useSelector((state) => state.deleteClass.tutories);
+  const tutories = useSelector((state) => state.tutories.tutories);
 
   useEffect(() => {
     dispatch(fetchTutories());
@@ -14,7 +16,9 @@ const DeleteClass = () => {
 
   const handleDeleteClass = (classId) => {
     dispatch(deleteTutory(classId));
+    dispatch(deleteTutoryExt(classId));
   };
+  
 
   return (
     <div>
