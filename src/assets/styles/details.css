@@ -9,14 +9,6 @@
   height: 70vh;
 }
 
-/* .details img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 10px;
-  box-shadow: 0 0 10px 0 rgba(40, 40, 40, 0.272);
-} */
-
 .details figure {
   width: 100%;
   height: 24vh;
@@ -25,6 +17,7 @@
   overflow: hidden;
   position: relative;
 }
+
 .details img {
   width: 100%;
   position: absolute;
