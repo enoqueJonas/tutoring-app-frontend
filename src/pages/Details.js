@@ -32,7 +32,9 @@ export default function Details() {
   return (
     <div className="relative center-container">
       <section className="details">
-        <img src={tutory.image} alt={`${tutory.subject} class`} />
+        <figure>
+          <img src={tutory.image} alt={`${tutory.subject} class`} />
+        </figure>
         <aside className="details__content">
           <header className="mb-3">
             <h2 className="ta-right title">{tutory.subject}</h2>
